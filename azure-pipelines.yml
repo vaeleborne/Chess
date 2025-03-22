@@ -1,0 +1,36 @@
+trigger:
+- main  # Adjust this to your branch name
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  buildConfiguration: 'Release'
+  platform: 'x64'
+
+steps:
+- task: Checkout@1
+
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '**/*.sln'
+
+- task: VSBuild@1
+  inputs:
+    solution: '**/*.sln'  # Or specify your path like 'MyProject/MyProject.sln'
+    msbuildArgs: '/p:Platform=$(platform)'
+    platform: '$(platform)'
+    configuration: '$(buildConfiguration)'
+
+- task: CopyFiles@2
+  inputs:
+    contents: '**\*.exe'
+    targetFolder: '$(Build.ArtifactStagingDirectory)'
+    flattenFolders: true
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: 'drop'
