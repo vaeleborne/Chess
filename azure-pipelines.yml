@@ -9,7 +9,7 @@ variables:
   platform: 'x64'
 
 steps:
-- task: Checkout@1
+- checkout: self
 
 - task: NuGetToolInstaller@1
 
