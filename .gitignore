@@ -1,0 +1,6 @@
+x64/
+.*
+
+!.gitignore
+ChessProgram/ChessProgram.vcxproj.filters
+ChessProgram/ChessProgram.vcxproj.user
