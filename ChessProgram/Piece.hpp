@@ -11,13 +11,16 @@
  *
  * This class is part of the ChessEngine and implements the Piece abstract class.
  *
- * TODO: Implement Class!
  */
 
 #include "Position.hpp"
+#include <vector>
+#include <map>
 
 namespace Chess
 {
+	class Board; //Forward declaration
+
 	class Piece
 	{
 	public: 
@@ -25,9 +28,16 @@ namespace Chess
 	protected:
 		Color color;
 
-	private:
+	public:
+		Piece(Color c) : color(c){}
 
+		virtual ~Piece() = default;
 
+		Color GetColor() const { return color; }
+
+		//Pure virtuals
+		virtual std::vector<std::pair<int, int>> GetLegalMoves(const Position& position, const Board& board) const = 0;
+		virtual char GetSymbol() const = 0;
 	};
 }
 
