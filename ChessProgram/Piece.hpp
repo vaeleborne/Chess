@@ -24,7 +24,7 @@ namespace Chess
 	class Piece
 	{
 	public: 
-		enum class Color {WHITE, BLACK};
+		enum class Color {WHITE, BLACK, NONE};
 	protected:
 		Color color;
 

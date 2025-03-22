@@ -14,9 +14,27 @@
  * TODO: Implement Class!
  */
 #include "Colorful_IO.hpp"
+#include "Square.hpp"
+#include <array>
 
 namespace Chess
 {
+	class Board
+	{
+	private: 
+		std::array<std::array<Square, 8>, 8> squares;
+
+	public: 
+		Board();
+		~Board();
+
+		void Initialize();
+
+		std::shared_ptr<Piece> GetPieceAt(const Position& pos) const;
+		void MovePiece(std::shared_ptr<Piece> piece, Position& from, Position& to);
+
+		void Print();
+	};
 
 }
 
