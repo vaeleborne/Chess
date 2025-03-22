@@ -1,5 +1,7 @@
 trigger:
-- main  # Adjust this to your branch name
+  branches:
+    include:
+      - '*'
 
 pool:
   vmImage: 'windows-latest'
