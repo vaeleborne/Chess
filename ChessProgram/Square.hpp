@@ -1,4 +1,4 @@
-#ifndef SQUARE_HPP
+﻿#ifndef SQUARE_HPP
 #define SQUARE_HPP
 /**
  * @file    Piece.hpp
@@ -15,17 +15,36 @@
  *
  */
 #include <memory>
+#include "Colorful_IO.hpp"
 #include "Piece.hpp"
+
 namespace Chess
 {
 	struct Square
 	{
-		std::shared_ptr<Piece> piece;
+		std::shared_ptr<Pieces::Piece> piece;
 
 		bool IsEmpty() const  { return !piece; }
 		bool IsOccupied() const { return piece != nullptr; }
 
-		Piece::Color GetColor() const { return piece ? piece->GetColor() : Piece::Color::NONE; }
+		Pieces::Piece::Color GetColor() const { return piece ? piece->GetColor() : Pieces::Piece::Color::NONE; }
+
+		void PrintSquare(bool whiteIfUnoccupied)
+		{
+			if (this->IsOccupied())
+			{
+				std::string color;
+				color = this->piece->GetColor() == Pieces::Piece::Color::WHITE ? ColorfulIO::Colors::Foreground::HI_WHITE : ColorfulIO::Colors::Foreground::BOLD_BLUE;
+
+				ColorfulIO::Write(std::cout, this->piece->GetSymbol(), false, true, color);
+			}
+			else
+			{
+				std::string color;
+				color = whiteIfUnoccupied ? ColorfulIO::Colors::Foreground::WHITE : ColorfulIO::Colors::Foreground::MAGENTA;
+				ColorfulIO::Write(std::cout, "\xE2\x96\xA0", false, true, color);
+			}
+		}
 	};
 }
 

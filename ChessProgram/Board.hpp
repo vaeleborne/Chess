@@ -13,9 +13,10 @@
  * 
  * TODO: Implement Class!
  */
-#include "Colorful_IO.hpp"
-#include "Square.hpp"
 #include <array>
+#include <Colorful_IO.hpp>
+#include "Square.hpp"
+#include "PieceFactory.hpp"
 
 namespace Chess
 {
@@ -30,8 +31,8 @@ namespace Chess
 
 		void Initialize();
 
-		std::shared_ptr<Piece> GetPieceAt(const Position& pos) const;
-		void MovePiece(std::shared_ptr<Piece> piece, Position& from, Position& to);
+		std::shared_ptr<Pieces::Piece> GetPieceAt(const Position& pos) const;
+		void MovePiece(std::shared_ptr<Pieces::Piece> piece, Position& from, Position& to);
 
 		void Print();
 	};

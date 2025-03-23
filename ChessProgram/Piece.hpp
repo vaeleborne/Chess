@@ -14,10 +14,11 @@
  */
 
 #include "Position.hpp"
+#include "UTF_Pieces.hpp"
 #include <vector>
 #include <map>
 
-namespace Chess
+namespace Chess::Pieces
 {
 	class Board; //Forward declaration
 
@@ -37,7 +38,7 @@ namespace Chess
 
 		//Pure virtuals
 		virtual std::vector<std::pair<int, int>> GetLegalMoves(const Position& position, const Board& board) const = 0;
-		virtual char GetSymbol() const = 0;
+		virtual std::string  GetSymbol() const = 0;
 	};
 }
 
