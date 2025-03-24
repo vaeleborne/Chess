@@ -18,17 +18,12 @@ namespace Chess::Pieces
 	class Rook : public Piece
 	{
 	public:
-		Rook(Color c) :Piece(c) {}
+		Rook(Color c, std::shared_ptr<IMovementStrategy> moveStrat) :Piece(c, moveStrat) {}
 
 		virtual ~Rook() {}
 
 		Color GetColor() const { return color; }
 
-		//Pure virtuals
-		std::vector<std::pair<int, int>> GetLegalMoves(const Position& position, const Board& board) const override
-		{
-			return std::vector<std::pair<int, int>>();
-		}
 		std::string GetSymbol() const override
 		{
 			return ROOK_UTF;

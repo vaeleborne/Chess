@@ -17,17 +17,13 @@ namespace Chess::Pieces
 	class Knight : public Piece
 	{
 	public:
-		Knight(Color c) :Piece(c) {}
+		Knight(Color c, std::shared_ptr<IMovementStrategy> moveStrat) :Piece(c, moveStrat) {}
 
 		virtual ~Knight() {}
 
 		Color GetColor() const { return color; }
 
-		//Pure virtuals
-		std::vector<std::pair<int, int>> GetLegalMoves(const Position& position, const Board& board) const override
-		{
-			return std::vector<std::pair<int, int>>();
-		}
+
 		std::string GetSymbol() const override
 		{
 			return KNIGHT_UTF;

@@ -19,17 +19,34 @@
 #include "King.hpp"
 #include <memory>
 
+//TODO: REMOVE THE BELOW CLASS FOR GENERICE MOVEMENT, IT IS JUST A PLACEHOLDER UNTIL ACTUAL STRATEGIES GET DEFINED
+#include "IMovementStrategy.hpp"
+
+
+
 
 
 namespace Chess::Pieces
 {
+
+	class MockMovement : public Chess::Pieces::IMovementStrategy
+	{
+
+	public:
+		std::vector<Chess::Position> GetLegalMoves(const Chess::Position& position, const Chess::Board& board, const Chess::Pieces::Color& color) const override
+		{
+			return std::vector<Chess::Position>();
+		}
+		~MockMovement() {}
+	};
+
 	enum class PieceType {
 		PAWN, KNIGHT, BISHOP, ROOK, QUEEN, KING
 	};
 	class PieceFactory
 	{
 	public: 
-		static std::shared_ptr<Piece> CreatePiece(PieceType type, Piece::Color color);
+		static std::shared_ptr<Piece> CreatePiece(PieceType type, Color color);
 	};
 }
 #endif

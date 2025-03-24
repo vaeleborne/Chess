@@ -155,6 +155,7 @@
     <ClInclude Include="Board.hpp" />
     <ClInclude Include="King.hpp" />
     <ClInclude Include="Knight.hpp" />
+    <ClInclude Include="IMovementStrategy.hpp" />
     <ClInclude Include="Pawn.hpp" />
     <ClInclude Include="Piece.hpp" />
     <ClInclude Include="PieceFactory.hpp" />

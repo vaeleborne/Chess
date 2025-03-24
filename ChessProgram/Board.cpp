@@ -30,7 +30,7 @@ namespace Chess
 		for (int i = 0; i < 2; i++)
 		{
 			//Set the color to white or black appropriately
-			Pieces::Piece::Color color = (i == 0) ? Pieces::Piece::Color::WHITE : Pieces::Piece::Color::BLACK;
+			Pieces::Color color = (i == 0) ? Pieces::Color::WHITE : Pieces::Color::BLACK;
 
 			int backRank = (i == 0) ? 0 : 7;
 

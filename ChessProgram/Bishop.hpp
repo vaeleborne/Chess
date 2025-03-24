@@ -17,17 +17,13 @@ namespace Chess::Pieces
 	class Bishop : public Piece
 	{
 	public:
-		Bishop(Color c) :Piece(c) {}
+		Bishop(Color c, std::shared_ptr<IMovementStrategy> moveStrat) :Piece(c, moveStrat) {}
 
 		virtual ~Bishop() {}
 
 		Color GetColor() const { return color; }
 
-		//Pure virtuals
-		std::vector<std::pair<int, int>> GetLegalMoves(const Position& position, const Board& board) const override
-		{
-			return std::vector<std::pair<int, int>>();
-		}
+		
 		std::string GetSymbol() const override
 		{
 			return BISHOP_UTF;

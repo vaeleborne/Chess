@@ -27,14 +27,14 @@ namespace Chess
 		bool IsEmpty() const  { return !piece; }
 		bool IsOccupied() const { return piece != nullptr; }
 
-		Pieces::Piece::Color GetColor() const { return piece ? piece->GetColor() : Pieces::Piece::Color::NONE; }
+		Pieces::Color GetColor() const { return piece ? piece->GetColor() : Pieces::Color::NONE; }
 
 		void PrintSquare(bool whiteIfUnoccupied)
 		{
 			if (this->IsOccupied())
 			{
 				std::string color;
-				color = this->piece->GetColor() == Pieces::Piece::Color::WHITE ? ColorfulIO::Colors::Foreground::HI_WHITE : ColorfulIO::Colors::Foreground::BOLD_BLUE;
+				color = this->piece->GetColor() == Pieces::Color::WHITE ? ColorfulIO::Colors::Foreground::HI_WHITE : ColorfulIO::Colors::Foreground::BOLD_BLUE;
 
 				ColorfulIO::Write(std::cout, this->piece->GetSymbol(), false, true, color);
 			}
@@ -42,7 +42,7 @@ namespace Chess
 			{
 				std::string color;
 				color = whiteIfUnoccupied ? ColorfulIO::Colors::Foreground::WHITE : ColorfulIO::Colors::Foreground::MAGENTA;
-				ColorfulIO::Write(std::cout, "\xE2\x96\xA0", false, true, color);
+				ColorfulIO::Write(std::cout, Pieces::SQUARE_UTF, false, true, color);
 			}
 		}
 	};

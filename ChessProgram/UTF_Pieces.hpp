@@ -1,4 +1,4 @@
-#ifndef UTF_PIECES_HPP
+﻿#ifndef UTF_PIECES_HPP
 #define UTF_PIECES_HPP
 /**
  * @file    UTF_Pieces.hpp
@@ -16,14 +16,13 @@
 
 namespace Chess::Pieces
 {
-	const std::string KING_UTF = "\xE2\x99\x9A";
-	const std::string QUEEN_UTF = "\xE2\x99\x9B";
-
-	const std::string ROOK_UTF = "\xE2\x99\x9C";
-	const std::string BISHOP_UTF = "\xE2\x99\x9D";
-	const std::string KNIGHT_UTF = "\xE2\x99\x9E";
-	const std::string PAWN_UTF = "\xE2\x99\x99";
-	const std::string SQUARE_UTF = "\xE2\x96\xA0";
+	const std::string KING_UTF		= "\xE2\x99\x9A";
+	const std::string QUEEN_UTF		= "\xE2\x99\x9B";
+	const std::string ROOK_UTF		= "\xE2\x99\x9C";
+	const std::string BISHOP_UTF	= "\xE2\x99\x9D";
+	const std::string KNIGHT_UTF	= "\xE2\x99\x9E";
+	const std::string PAWN_UTF		= "\xE2\x99\x99";
+	const std::string SQUARE_UTF	= "\xE2\x96\xA0";
 }
 
 #endif

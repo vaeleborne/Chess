@@ -17,6 +17,7 @@
 #include <Colorful_IO.hpp>
 #include "Square.hpp"
 #include "PieceFactory.hpp"
+#include "Piece.hpp"
 
 namespace Chess
 {

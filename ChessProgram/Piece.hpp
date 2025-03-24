@@ -15,29 +15,39 @@
 
 #include "Position.hpp"
 #include "UTF_Pieces.hpp"
+#include "IMovementStrategy.hpp"
 #include <vector>
 #include <map>
+#include <memory>
+
+namespace Chess {
+	class Board;
+}
 
 namespace Chess::Pieces
 {
-	class Board; //Forward declaration
+	enum class Color { WHITE, BLACK, NONE };
 
 	class Piece
 	{
 	public: 
-		enum class Color {WHITE, BLACK, NONE};
+		
 	protected:
 		Color color;
-
+		std::shared_ptr<IMovementStrategy> movementStrategy;
 	public:
-		Piece(Color c) : color(c){}
+
+		Piece(Color c, std::shared_ptr<IMovementStrategy> moveStrat) : color(c), movementStrategy(moveStrat){}
 
 		virtual ~Piece() = default;
 
 		Color GetColor() const { return color; }
 
-		//Pure virtuals
-		virtual std::vector<std::pair<int, int>> GetLegalMoves(const Position& position, const Board& board) const = 0;
+		virtual std::vector<Chess::Position> GetLegalMoves(const Chess::Position& from, const Chess::Board& board) const
+		{
+			return movementStrategy->GetLegalMoves(from, board, this->color);
+		}
+
 		virtual std::string  GetSymbol() const = 0;
 	};
 }
