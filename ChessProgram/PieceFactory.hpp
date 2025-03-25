@@ -18,9 +18,9 @@
 #include "Queen.hpp"
 #include "King.hpp"
 #include <memory>
+#include "KnightMovementStrategy.hpp"
 
-//TODO: REMOVE THE BELOW CLASS FOR GENERICE MOVEMENT, IT IS JUST A PLACEHOLDER UNTIL ACTUAL STRATEGIES GET DEFINED
-#include "IMovementStrategy.hpp"
+
 
 
 
@@ -28,7 +28,7 @@
 
 namespace Chess::Pieces
 {
-
+	//TODO: REMOVE THE BELOW CLASS FOR GENERICE MOVEMENT, IT IS JUST A PLACEHOLDER UNTIL ACTUAL STRATEGIES GET DEFINED
 	class MockMovement : public Chess::Pieces::IMovementStrategy
 	{
 

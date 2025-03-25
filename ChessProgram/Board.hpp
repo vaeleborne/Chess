@@ -21,6 +21,17 @@
 
 namespace Chess
 {
+	struct BoardState {
+		bool whiteKingMoved = false;
+		bool blackKingMoved = false;
+		bool whiteKingsideRookMoved = false;
+		bool blackKingsideRookMoved = false;
+		bool whiteQueensideRookMoved = false;
+		bool blackQueensideRookMoved = false;
+	};
+
+
+
 	class Board
 	{
 	private: 
@@ -29,8 +40,13 @@ namespace Chess
 	public: 
 		Board();
 		~Board();
-
+		BoardState state;
 		void Initialize();
+
+		//TODO: IMPLEMENT
+		bool IsCheck(const Position& p) const { return false; }
+
+		Square GetSquare(const Position& p) const { return squares[p.file][p.rank]; } 
 
 		std::shared_ptr<Pieces::Piece> GetPieceAt(const Position& pos) const;
 		void MovePiece(std::shared_ptr<Pieces::Piece> piece, Position& from, Position& to);

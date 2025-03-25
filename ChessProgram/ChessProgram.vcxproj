@@ -147,6 +147,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Board.cpp" />
+    <ClCompile Include="KingMoveStrategy.cpp" />
+    <ClCompile Include="KnightMovementStrategy.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PieceFactory.cpp" />
   </ItemGroup>
@@ -154,8 +156,10 @@
     <ClInclude Include="Bishop.hpp" />
     <ClInclude Include="Board.hpp" />
     <ClInclude Include="King.hpp" />
+    <ClInclude Include="KingMovementStrategy.hpp" />
     <ClInclude Include="Knight.hpp" />
     <ClInclude Include="IMovementStrategy.hpp" />
+    <ClInclude Include="KnightMovementStrategy.hpp" />
     <ClInclude Include="Pawn.hpp" />
     <ClInclude Include="Piece.hpp" />
     <ClInclude Include="PieceFactory.hpp" />

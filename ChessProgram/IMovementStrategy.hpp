@@ -2,7 +2,14 @@
 #define MOVEMENT_STRATEGY_HPP
 #include "Position.hpp"
 #include <vector>
-
+/**
+ * @file    IMovementStrategy.hpp
+ * @author  Dylan Morgan
+ * @brief   Defines the interface IMovementStrategy which is to be used by Pieces for their movements
+ * @date    2025-03-23
+ * @version 1.0
+ * @copyright MIT License
+ */
 namespace Chess { class Board; }
 namespace Chess::Pieces
 {
@@ -11,7 +18,7 @@ namespace Chess::Pieces
 	class IMovementStrategy
 	{
 	public:
-		virtual std::vector<Position> GetLegalMoves(const Chess::Position& position, const Chess::Board& board, const Color& color) const = 0;
+		virtual std::vector<Position> GetLegalMoves(const Chess::Position& from, const Chess::Board& board, const Color& color) const = 0;
 		~IMovementStrategy() = default;
 	};
 }
