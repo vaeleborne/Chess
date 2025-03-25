@@ -29,7 +29,7 @@ void  Chess::Pieces::AddMovesFromOffsets(std::vector<Move>& moves, const Positio
 	}
 }
 
-void Chess::Pieces::AddSlidingMobrd(std::vector<Move>& moves, const Position& from, const Board& board, const Piece& piece,
+void Chess::Pieces::AddSlidingMoves(std::vector<Move>& moves, const Position& from, const Board& board, const Piece& piece,
 	const std::vector<std::pair<int, int>>& directions)
 {
 	for (const auto& [dx, dy] : directions)
@@ -37,6 +37,7 @@ void Chess::Pieces::AddSlidingMobrd(std::vector<Move>& moves, const Position& fr
 		int curX = from.file + dx;
 		int curY = from.rank + dy;
 
+		//While the position is a valid one 
 		while (curX >= 0 && curX < 8 && curY >= 0 && curY < 8)
 		{
 			Position to(curX, curY);

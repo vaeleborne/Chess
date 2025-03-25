@@ -20,6 +20,9 @@
 #include <memory>
 #include "KnightMovementStrategy.hpp"
 #include "KingMovementStrategy.hpp"
+#include "PawnMovementStrategy.hpp"
+#include "RookMovementStrategy.hpp"
+#include "BishopMovementStrategy.hpp"
 
 
 

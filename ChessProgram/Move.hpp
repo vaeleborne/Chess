@@ -34,7 +34,6 @@ namespace Chess
 		std::shared_ptr<Pieces::Piece> capturedPiece = nullptr;
 
 		Move(Position from_, Position to_, SpecialMove special_, std::shared_ptr<Pieces::Piece> capturedPiece_ = nullptr) : from(from_), to(to_), special(special_), capturedPiece(capturedPiece_) {}
-
 	};
 }
 

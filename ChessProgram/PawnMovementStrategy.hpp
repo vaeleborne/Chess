@@ -14,11 +14,8 @@ namespace Chess::Pieces
 {
 	class PawnMovementStrategy : public IMovementStrategy
 	{
-	private:
-		//std::vector<std::pair<int, int>> _OFFSETS;
-
 	public:
-		std::vector<Move> GetLegalMoves(const Chess::Position& position, const Chess::Board& board, const Piece& pawn) const override;
+		std::vector<Move> GetLegalMoves(const Chess::Position& from, const Chess::Board& board, const Piece& pawn) const override;
 
 	};
 }

@@ -19,7 +19,7 @@ namespace Chess::Pieces
 	private:
 		const static std::vector<std::pair<int, int>> _OFFSETS; 
 	public:
-		std::vector<Move> GetLegalMoves(const Chess::Position& position, const Chess::Board& board, const Piece& king) const override;
+		std::vector<Move> GetLegalMoves(const Chess::Position& from, const Chess::Board& board, const Piece& king) const override;
 	};
 
 }
