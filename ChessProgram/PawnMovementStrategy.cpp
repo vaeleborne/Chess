@@ -3,6 +3,7 @@
 
 namespace Chess::Pieces
 {
+	//Helper to see if the pawn can promote
 	bool CanPromote(const Piece& pawn, const Position& to)
 	{
 		if (pawn.GetColor() == Color::WHITE)
@@ -16,6 +17,41 @@ namespace Chess::Pieces
 				return true;
 		}
 		return false;
+	}
+
+	//Helper to add a move for the pawn and mark as a promote move if applicable
+	void CheckPromoteAndAddMove(std::vector<Move>& moves, const Chess::Position& from, const Chess::Position& to, const Chess::Board& board, const Piece& pawn)
+	{
+		if (CanPromote(pawn, to))
+		{
+			moves.push_back(Move(from, to, SpecialMove::PROMOTION, board.GetPieceAt(to)));
+		}
+		else
+		{
+			moves.push_back(Move(from, to, SpecialMove::NONE, board.GetPieceAt(to)));
+		}
+	}
+
+	void AddCaptureMove(std::vector<Move>& moves, const Chess::Position& from, const Chess::Position& to, const Chess::Board& board, const Piece& activePawn, const std::shared_ptr<Piece> target)
+	{
+		if (CanPromote(activePawn, to))
+		{
+			moves.push_back(Move(from, to, SpecialMove::PROMOTION, target));
+		}
+		else
+		{
+			moves.push_back(Move(from, to, SpecialMove::NONE, target));
+		}
+	}
+	
+	//Checks if the pawn can move diagonally and adds the move if it can
+	void CheckAndAddDiagonalMove(std::vector<Move>& moves, const Chess::Position& from, const Chess::Position& diagonal, const Chess::Board& board, const Piece& pawn)
+	{
+		std::shared_ptr<Piece> target = board.GetPieceAt(diagonal);
+		if (diagonal.IsValid() && !board.GetSquare(diagonal).IsEmpty() && target->GetColor() != pawn.GetColor())
+		{
+			AddCaptureMove(moves, from, diagonal, board, pawn, target);
+		}
 	}
 
 	std::vector<Move> PawnMovementStrategy::GetLegalMoves(const Chess::Position& from, const Chess::Board& board, const Piece& pawn) const
@@ -32,14 +68,7 @@ namespace Chess::Pieces
 		//Basic forward movement
 		if (forwardOne.IsValid() && board.GetSquare(forwardOne).IsEmpty())
 		{
-			if (CanPromote(*thisPawn, forwardOne))
-			{
-				moves.push_back(Move(from, forwardOne, SpecialMove::PROMOTION));
-			}
-			else
-			{
-				moves.push_back(Move(from, forwardOne, SpecialMove::NONE));
-			}
+			CheckPromoteAndAddMove(moves, from, forwardOne, board, *thisPawn);
 		}
 	
 		//Check for ability to move two spaces
@@ -49,9 +78,9 @@ namespace Chess::Pieces
 			//Check that pawn is not blocked
 			Position forwardTwo = Position(from.file, from.rank + moveTwo.second);
 
-			if (board.GetSquare(forwardOne).IsEmpty() && board.GetSquare(forwardTwo).IsEmpty())
+			if (forwardOne.IsValid() && forwardTwo.IsValid() && board.GetSquare(forwardOne).IsEmpty() && board.GetSquare(forwardTwo).IsEmpty())
 			{
-				//Add as a possibility!
+				//Add as a possibility! (this move cannot result in a promotion so no need to check!)
 				moves.push_back(Move(from, forwardTwo, SpecialMove::FIRSTPAWNMOVE));
 			}
 		}
@@ -60,35 +89,14 @@ namespace Chess::Pieces
 		Position leftDiagonal = Position(from.file - 1, forwardOne.rank);
 		Position rightDiagonal = Position(from.file + 1, forwardOne.rank);
 
-		if (leftDiagonal.IsValid() && !board.GetSquare(leftDiagonal).IsEmpty() && board.GetPieceAt(leftDiagonal)->GetColor() != thisPawn->GetColor())
-		{
-			if (CanPromote(*thisPawn, leftDiagonal))
-			{
-				moves.push_back(Move(from, leftDiagonal, SpecialMove::PROMOTION, board.GetPieceAt(leftDiagonal)));
-			}
-			else
-			{
-				moves.push_back(Move(from, leftDiagonal, SpecialMove::NONE, board.GetPieceAt(leftDiagonal)));
-			}
-		}
-
-		if (rightDiagonal.IsValid() && !board.GetSquare(rightDiagonal).IsEmpty() && board.GetPieceAt(rightDiagonal)->GetColor() != thisPawn->GetColor())
-		{
-			if (CanPromote(*thisPawn, rightDiagonal))
-			{
-				moves.push_back(Move(from, rightDiagonal, SpecialMove::PROMOTION, board.GetPieceAt(rightDiagonal)));
-			}
-			else
-			{
-				moves.push_back(Move(from, rightDiagonal, SpecialMove::NONE, board.GetPieceAt(rightDiagonal)));
-			}
-		}
+		CheckAndAddDiagonalMove(moves, from, leftDiagonal, board, *thisPawn);
+		CheckAndAddDiagonalMove(moves, from, rightDiagonal, board, *thisPawn);
 
 		//Check for en passant
 		if (board.state.enPassantTarget.has_value())
 		{
-			auto epTarget = board.state.enPassantTarget.value();
-			if (std::abs((int)epTarget.file - (int)from.file) == 1)
+			auto& epTarget = board.state.enPassantTarget.value();
+			if (epTarget.IsValid() && std::abs((int)epTarget.file - (int)from.file) == 1)
 			{
 				//enPassantTarget is next to us, now to check if we can go diagonally!
 				int offset = white ? 1 : -1;
