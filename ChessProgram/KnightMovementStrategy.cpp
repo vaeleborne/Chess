@@ -13,12 +13,12 @@ namespace Chess::Pieces
 		} 
 	};
 
-	std::vector<Move> KnightMovementStrategy::GetLegalMoves(const Chess::Position& from, const Chess::Board& board, const Color& color) const
+	std::vector<Move> KnightMovementStrategy::GetLegalMoves(const Chess::Position& from, const Chess::Board& board, const Piece& knight) const
 	{
 		//Should return any valid moves for a Knight Piece
 		std::vector<Move> moves;
 
-		AddMovesFromOffsets(moves, from, board, color, _OFFSETS);
+		AddMovesFromOffsets(moves, from, board, knight, _OFFSETS);
 		return moves;
 
 	}

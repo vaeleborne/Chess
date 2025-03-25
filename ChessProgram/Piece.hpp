@@ -45,7 +45,7 @@ namespace Chess::Pieces
 
 		virtual std::vector<Chess::Move> GetLegalMoves(const Chess::Position& from, const Chess::Board& board) const
 		{
-			return movementStrategy->GetLegalMoves(from, board, this->color);
+			return movementStrategy->GetLegalMoves(from, board, *this);
 		}
 
 		virtual std::string  GetSymbol() const = 0;

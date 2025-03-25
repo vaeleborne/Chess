@@ -19,6 +19,7 @@
 #include "King.hpp"
 #include <memory>
 #include "KnightMovementStrategy.hpp"
+#include "KingMovementStrategy.hpp"
 
 
 
@@ -28,16 +29,17 @@
 
 namespace Chess::Pieces
 {
-	//TODO: REMOVE THE BELOW CLASS FOR GENERICE MOVEMENT, IT IS JUST A PLACEHOLDER UNTIL ACTUAL STRATEGIES GET DEFINED
+	////TODO: REMOVE THE BELOW CLASS FOR GENERICE MOVEMENT, IT IS JUST A PLACEHOLDER UNTIL ACTUAL STRATEGIES GET DEFINED
+
+
 	class MockMovement : public Chess::Pieces::IMovementStrategy
 	{
-
 	public:
-		std::vector<Chess::Move> GetLegalMoves(const Chess::Position& position, const Chess::Board& board, const Chess::Pieces::Color& color) const override
+		std::vector<Move> GetLegalMoves(const Chess::Position& from, const Chess::Board& board, const Piece& piece) const override
 		{
-			return std::vector<Chess::Move>();
+			return std::vector<Move>();
 		}
-		~MockMovement() {}
+		~MockMovement(){}
 	};
 
 	enum class PieceType {

@@ -18,7 +18,7 @@ namespace Chess::Pieces
 	class IMovementStrategy
 	{
 	public:
-		virtual std::vector<Move> GetLegalMoves(const Chess::Position& from, const Chess::Board& board, const Color& color) const = 0;
+		virtual std::vector<Move> GetLegalMoves(const Chess::Position& from, const Chess::Board& board, const Piece& piece) const = 0;
 		~IMovementStrategy() = default;
 	};
 }

@@ -20,7 +20,7 @@ namespace Chess::Pieces
 		bool MarkMoved() { _hasMoved = true; }
 
 	public:
-		PawnMovementStrategy()
+		PawnMovementStrategy() {}
 
 	};
 }

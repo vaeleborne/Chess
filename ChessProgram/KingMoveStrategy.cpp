@@ -18,16 +18,16 @@ namespace Chess::Pieces
 		}
 	};
 
-	std::vector<Move> KingMovementStrategy::GetLegalMoves(const Chess::Position& from, const Chess::Board& board, const Color& color) const
+	std::vector<Move> KingMovementStrategy::GetLegalMoves(const Chess::Position& from, const Chess::Board& board, const Piece& king) const
 	{	
 		//Our return vector
 		std::vector<Move> moves;
 
 		//Check for common valid moves based on the kings offsets
-		AddMovesFromOffsets(moves, from, board, color, _OFFSETS);
+		AddMovesFromOffsets(moves, from, board, king, _OFFSETS);
 
 		//Getting color to help check for castling universally
-		bool white = color == Color::WHITE;
+		bool white = king.GetColor() == Color::WHITE;
 		bool kingMoved = white ? board.state.whiteKingMoved : board.state.blackKingMoved;
 		
 
