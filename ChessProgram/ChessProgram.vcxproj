@@ -158,6 +158,8 @@
     <ClCompile Include="src\Movement\RookMovementStrategy.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Engine\ChessEngine.hpp" />
+    <ClInclude Include="include\Engine\IGameState.hpp" />
     <ClInclude Include="include\Pieces\Bishop.hpp" />
     <ClInclude Include="include\Movement\BishopMovementStrategy.hpp" />
     <ClInclude Include="include\Board\Board.hpp" />
@@ -179,6 +181,7 @@
     <ClInclude Include="include\Movement\RookMovementStrategy.hpp" />
     <ClInclude Include="include\Board\Square.hpp" />
     <ClInclude Include="include\Pieces\UTF_Pieces.hpp" />
+    <ClInclude Include="include\Players\Player.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
