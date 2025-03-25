@@ -150,6 +150,7 @@
     <ClCompile Include="KingMoveStrategy.cpp" />
     <ClCompile Include="KnightMovementStrategy.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MovementHelpers.cpp" />
     <ClCompile Include="PieceFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +162,7 @@
     <ClInclude Include="IMovementStrategy.hpp" />
     <ClInclude Include="KnightMovementStrategy.hpp" />
     <ClInclude Include="Move.hpp" />
+    <ClInclude Include="MovementHelpers.hpp" />
     <ClInclude Include="Pawn.hpp" />
     <ClInclude Include="Piece.hpp" />
     <ClInclude Include="PieceFactory.hpp" />

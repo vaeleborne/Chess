@@ -17,8 +17,7 @@ namespace Chess::Pieces
 	class KingMovementStrategy : public IMovementStrategy
 	{
 	private:
-		std::array<std::pair<int, int>, 8> _offsets = { {
-			{0,1}, {0, -1}, {1, 0}, {-1, 0}, {1, 1}, {1, -1}, {-1, -1}, {-1, 1}} };
+		const static std::vector<std::pair<int, int>> _OFFSETS; 
 	public:
 		std::vector<Move> GetLegalMoves(const Chess::Position& position, const Chess::Board& board, const Color& color) const override;
 	};

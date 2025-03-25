@@ -1,6 +1,7 @@
 #ifndef KING_HPP
 #define KING_HPP
 #include "Piece.hpp"
+#include "MovementHelpers.hpp"
 /**
  * @file    King.hpp
  * @author  Dylan Morgan
