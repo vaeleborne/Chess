@@ -3,12 +3,12 @@
 
 namespace Chess::Pieces
 {
-	std::vector<Position> KingMovementStrategy::GetLegalMoves(const Chess::Position& from, const Chess::Board& board, const Color& color) const
+	std::vector<Move> KingMovementStrategy::GetLegalMoves(const Chess::Position& from, const Chess::Board& board, const Color& color) const
 	{
 		
 		//Check for general movement options
 		//Should return any valid moves for a Knight Piece
-		std::vector<Position> moves;
+		std::vector<Move> moves;
 
 		//Loop through possible offsets
 		for (auto [dx, dy] : _offsets)
@@ -23,7 +23,11 @@ namespace Chess::Pieces
 				//If there is no piece there or it is a piece of a different color, it is a valid move!
 				if (!piece || piece->GetColor() != color)
 				{
-					moves.push_back(to);
+					moves.push_back(Move(from, to, SpecialMove::NONE));
+				}
+				else if (piece->GetColor() != color)
+				{
+					moves.push_back(Move(from, to, SpecialMove::NONE, piece));	//Move can capture a piece!
 				}
 			}
 		}
@@ -50,9 +54,7 @@ namespace Chess::Pieces
 					if (!board.IsCheck(from) && !board.IsCheck(kingPlusOne) && !board.IsCheck(kingPlusTwo))
 					{
 						//We can short castle!
-						moves.push_back(kingPlusTwo);
-
-						//TODO: Maybe add something for easier checking if the player chooses this move? Probably just handle in a move function though not when retrieving possible moves
+						moves.push_back(Move(from, kingPlusTwo, SpecialMove::KINGSIDE_CASTLE));
 					}
 				}
 			}
@@ -71,7 +73,7 @@ namespace Chess::Pieces
 					if (!board.IsCheck(from) && !board.IsCheck(kingMinusOne) && !board.IsCheck(kingMinusTwo))
 					{
 						//We can long castle!
-						moves.push_back(kingMinusTwo);
+						moves.push_back(Move(from, kingMinusTwo, SpecialMove::QUEENSIDE_CASTLE));
 					}
 				}
 			}

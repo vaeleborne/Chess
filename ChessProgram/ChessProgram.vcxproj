@@ -160,6 +160,7 @@
     <ClInclude Include="Knight.hpp" />
     <ClInclude Include="IMovementStrategy.hpp" />
     <ClInclude Include="KnightMovementStrategy.hpp" />
+    <ClInclude Include="Move.hpp" />
     <ClInclude Include="Pawn.hpp" />
     <ClInclude Include="Piece.hpp" />
     <ClInclude Include="PieceFactory.hpp" />

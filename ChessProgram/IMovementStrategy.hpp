@@ -1,6 +1,6 @@
 #ifndef MOVEMENT_STRATEGY_HPP
 #define MOVEMENT_STRATEGY_HPP
-#include "Position.hpp"
+#include "Move.hpp"
 #include <vector>
 /**
  * @file    IMovementStrategy.hpp
@@ -18,7 +18,7 @@ namespace Chess::Pieces
 	class IMovementStrategy
 	{
 	public:
-		virtual std::vector<Position> GetLegalMoves(const Chess::Position& from, const Chess::Board& board, const Color& color) const = 0;
+		virtual std::vector<Move> GetLegalMoves(const Chess::Position& from, const Chess::Board& board, const Color& color) const = 0;
 		~IMovementStrategy() = default;
 	};
 }

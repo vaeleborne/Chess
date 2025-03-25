@@ -20,7 +20,7 @@ namespace Chess::Pieces
 		std::array<std::pair<int, int>, 8> _offsets = { {
 			{2,1}, {1, 2}, {-1, 2}, {-2, 1}, {-2, -1}, {-1, -2}, {1, -2}, {2, -1}} };
 	public:
-		std::vector<Position> GetLegalMoves(const Chess::Position& position, const Chess::Board& board, const Color& color) const override;
+		std::vector<Move> GetLegalMoves(const Chess::Position& position, const Chess::Board& board, const Color& color) const override;
 	};
 }
 
