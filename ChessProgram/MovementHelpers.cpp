@@ -28,3 +28,35 @@ void  Chess::Pieces::AddMovesFromOffsets(std::vector<Move>& moves, const Positio
 		AddOffsetMoveIfValid(moves, from, board, color, dx, dy);
 	}
 }
+
+void Chess::Pieces::AddSlidingMobrd(std::vector<Move>& moves, const Position& from, const Board& board, const Color& color, 
+	const std::vector<std::pair<int, int>>& directions)
+{
+	for (const auto& [dx, dy] : directions)
+	{
+		int curX = from.file + dx;
+		int curY = from.rank + dy;
+
+		while (curX >= 0 && curX < 8 && curY >= 0 && curY < 8)
+		{
+			Position to(curX, curY);
+			auto square = board.GetSquare(to);
+
+			if (square.IsEmpty())
+			{
+				moves.push_back(Move(from, to, SpecialMove::NONE));
+			}
+			else
+			{
+				//The square is occupied, check to see if it is one we can capture
+				if (square.piece->GetColor() != color)
+				{
+					moves.push_back(Move(from, to, SpecialMove::NONE, square.piece));
+				}
+				break; //We can't move past a piece
+			}
+			curX += dx;
+			curY += dy;
+		}
+	}
+}

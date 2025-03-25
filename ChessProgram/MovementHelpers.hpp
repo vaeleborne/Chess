@@ -7,5 +7,7 @@
 namespace Chess::Pieces
 {
 	void AddMovesFromOffsets(std::vector<Move>& moves, const Position& from, const Board& board, const Color& color, const std::vector<std::pair<int, int>>& offsets);
+
+	void AddSlidingMobrd(std::vector<Move>& moves, const Position& from, const Board& board, const Color& color, const std::vector<std::pair<int, int>>& directions);
 }
 #endif
