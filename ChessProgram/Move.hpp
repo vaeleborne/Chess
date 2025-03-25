@@ -1,6 +1,5 @@
 #ifndef MOVE_HPP
 #define MOVE_HPP
-#include "Piece.hpp"
 #include "Position.hpp"
 #include <memory>
 /**
@@ -11,6 +10,10 @@
  * @version 1.0
  * @copyright MIT License
  */
+
+namespace Chess::Pieces {
+	class Piece;
+}
 namespace Chess
 {
 	enum class SpecialMove

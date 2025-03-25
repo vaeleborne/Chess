@@ -33,9 +33,9 @@ namespace Chess::Pieces
 	{
 
 	public:
-		std::vector<Chess::Position> GetLegalMoves(const Chess::Position& position, const Chess::Board& board, const Chess::Pieces::Color& color) const override
+		std::vector<Chess::Move> GetLegalMoves(const Chess::Position& position, const Chess::Board& board, const Chess::Pieces::Color& color) const override
 		{
-			return std::vector<Chess::Position>();
+			return std::vector<Chess::Move>();
 		}
 		~MockMovement() {}
 	};

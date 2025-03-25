@@ -43,7 +43,7 @@ namespace Chess::Pieces
 
 		Color GetColor() const { return color; }
 
-		virtual std::vector<Chess::Position> GetLegalMoves(const Chess::Position& from, const Chess::Board& board) const
+		virtual std::vector<Chess::Move> GetLegalMoves(const Chess::Position& from, const Chess::Board& board) const
 		{
 			return movementStrategy->GetLegalMoves(from, board, this->color);
 		}
