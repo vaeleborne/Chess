@@ -12,10 +12,10 @@ namespace Chess::Pieces
 			{-1, 1}
 		}
 	};
-	std::vector<Move> BishopMovementStrategy::GetLegalMoves(const Chess::Position& from, const Chess::Board& board, const Piece& rook) const
+	std::vector<Move> BishopMovementStrategy::GetLegalMoves(const Chess::Position& from, const Chess::Board& board, const Piece& bishop) const
 	{
 		std::vector<Move> moves;
-		AddSlidingMoves(moves, from, board, rook, _DIRECTIONS);
+		AddSlidingMoves(moves, from, board, bishop, _DIRECTIONS);
 
 		return moves;
 	}

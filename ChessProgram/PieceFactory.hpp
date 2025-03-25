@@ -23,6 +23,7 @@
 #include "PawnMovementStrategy.hpp"
 #include "RookMovementStrategy.hpp"
 #include "BishopMovementStrategy.hpp"
+#include "QueenMovementStrategy.hpp"
 
 
 
@@ -32,19 +33,6 @@
 
 namespace Chess::Pieces
 {
-	////TODO: REMOVE THE BELOW CLASS FOR GENERICE MOVEMENT, IT IS JUST A PLACEHOLDER UNTIL ACTUAL STRATEGIES GET DEFINED
-
-
-	class MockMovement : public Chess::Pieces::IMovementStrategy
-	{
-	public:
-		std::vector<Move> GetLegalMoves(const Chess::Position& from, const Chess::Board& board, const Piece& piece) const override
-		{
-			return std::vector<Move>();
-		}
-		~MockMovement(){}
-	};
-
 	enum class PieceType {
 		PAWN, KNIGHT, BISHOP, ROOK, QUEEN, KING
 	};
