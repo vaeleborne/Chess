@@ -28,6 +28,7 @@ namespace Chess
 		bool blackKingsideRookMoved = false;
 		bool whiteQueensideRookMoved = false;
 		bool blackQueensideRookMoved = false;
+		std::optional<Square> enPassantTarget;
 	};
 
 

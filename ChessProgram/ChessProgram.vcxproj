@@ -164,6 +164,7 @@
     <ClInclude Include="Move.hpp" />
     <ClInclude Include="MovementHelpers.hpp" />
     <ClInclude Include="Pawn.hpp" />
+    <ClInclude Include="PawnMovementStrategy.hpp" />
     <ClInclude Include="Piece.hpp" />
     <ClInclude Include="PieceFactory.hpp" />
     <ClInclude Include="Position.hpp" />

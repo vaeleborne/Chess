@@ -1,7 +1,5 @@
 #ifndef KNIGHT_MOVEMENT_STRATEGY_HPP
 #define KNIGHT_MOVEMENT_STRATEGY_HPP
-#include "IMovementStrategy.hpp"
-#include <array>
 /**
  * @file    KnightMovementStrategy.hpp
  * @author  Dylan Morgan
@@ -10,7 +8,8 @@
  * @version 1.0
  * @copyright MIT License
  */
-
+#include "IMovementStrategy.hpp"
+#include <array>
 
 namespace Chess::Pieces
 {

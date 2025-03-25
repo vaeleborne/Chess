@@ -7,10 +7,14 @@ namespace Chess::Pieces
 	const std::vector<std::pair<int, int>> KingMovementStrategy::_OFFSETS = 
 	{
 		{
-			{0,1},		{0, -1}, 
-			{1, 0},		{-1, 0}, 
-			{1, 1},		{1, -1},
-			{-1, -1},	{-1, 1}
+			{0,1},
+			{0, -1}, 
+			{1, 0},		
+			{-1, 0}, 
+			{1, 1},	
+			{1, -1},
+			{-1, -1},	
+			{-1, 1}
 		}
 	};
 
