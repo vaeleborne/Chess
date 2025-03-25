@@ -22,7 +22,8 @@ namespace Chess
 		KINGSIDE_CASTLE,
 		QUEENSIDE_CASTLE,
 		EN_PASSANT,
-		PROMOTION
+		PROMOTION, 
+		FIRSTPAWNMOVE
 	};
 
 	struct Move

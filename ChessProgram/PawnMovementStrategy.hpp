@@ -1,6 +1,7 @@
 #ifndef PAWN_MOVEMENT_STRATEGY_HPP
 #define PAWN_MOVEMENT_STRATEGY_HPP
 #include "IMovementStrategy.hpp"
+#include "Pawn.hpp"
 /**
  * @file    PawnMovementStrategy.hpp
  * @author  Dylan Morgan
@@ -14,13 +15,10 @@ namespace Chess::Pieces
 	class PawnMovementStrategy : public IMovementStrategy
 	{
 	private:
-		bool _hasMoved;
-		//For checking if the pawn has moved and also setting that value to true (but not back to false)
-		bool HasMoved() { return _hasMoved; }
-		bool MarkMoved() { _hasMoved = true; }
+		//std::vector<std::pair<int, int>> _OFFSETS;
 
 	public:
-		PawnMovementStrategy() {}
+		std::vector<Move> GetLegalMoves(const Chess::Position& position, const Chess::Board& board, const Piece& pawn) const override;
 
 	};
 }

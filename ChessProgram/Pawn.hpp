@@ -19,13 +19,17 @@ namespace Chess::Pieces
 {
 	class Pawn : public Piece
 	{
+	private:
+		bool _hasMoved;
 	public:
-		Pawn(Color c, std::shared_ptr<IMovementStrategy> moveStrat) :Piece(c, moveStrat) {}
+		Pawn(Color c, std::shared_ptr<IMovementStrategy> moveStrat) :Piece(c, moveStrat), _hasMoved(false) {}
 
 		virtual ~Pawn() {}
 
 		Color GetColor() const { return color; }
-
+		//For checking if the pawn has moved and also setting that value to true (but not back to false)
+		bool HasMoved() const { return _hasMoved; }
+		bool MarkAsMoved() { _hasMoved = true; }
 
 		std::string GetSymbol() const override
 		{

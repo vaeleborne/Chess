@@ -151,6 +151,7 @@
     <ClCompile Include="KnightMovementStrategy.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MovementHelpers.cpp" />
+    <ClCompile Include="PawnMovementStrategy.cpp" />
     <ClCompile Include="PieceFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
