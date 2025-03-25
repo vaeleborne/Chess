@@ -9,7 +9,6 @@
  * @copyright MIT License
  */
 #include "IMovementStrategy.hpp"
-#include <array>
 
 namespace Chess::Pieces
 {

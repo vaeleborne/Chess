@@ -1,5 +1,5 @@
-#include "QueenMovementStrategy.hpp"
-#include "MovementHelpers.hpp"
+#include "../../include/Movement/QueenMovementStrategy.hpp"
+#include "../../include/Movement/MovementHelpers.hpp"
 
 namespace Chess::Pieces
 {

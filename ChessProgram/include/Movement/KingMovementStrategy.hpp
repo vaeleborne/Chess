@@ -1,7 +1,6 @@
 #ifndef KING_MOVEMENT_STRATEGY_HPP
 #define KING_MOVEMENT_STRATEGY_HPP
 #include "IMovementStrategy.hpp"
-#include <array>
 /**
  * @file    KingMovementStrategy.hpp
  * @author  Dylan Morgan

@@ -146,39 +146,39 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BishopMovementStrategy.cpp" />
-    <ClCompile Include="Board.cpp" />
-    <ClCompile Include="KingMoveStrategy.cpp" />
-    <ClCompile Include="KnightMovementStrategy.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="MovementHelpers.cpp" />
-    <ClCompile Include="PawnMovementStrategy.cpp" />
-    <ClCompile Include="PieceFactory.cpp" />
-    <ClCompile Include="QueenMovementStrategy.cpp" />
-    <ClCompile Include="RookMovementStrategy.cpp" />
+    <ClCompile Include="src\Movement\BishopMovementStrategy.cpp" />
+    <ClCompile Include="src\Board\Board.cpp" />
+    <ClCompile Include="src\Movement\KingMoveStrategy.cpp" />
+    <ClCompile Include="src\Movement\KnightMovementStrategy.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Movement\MovementHelpers.cpp" />
+    <ClCompile Include="src\Movement\PawnMovementStrategy.cpp" />
+    <ClCompile Include="src\Pieces\PieceFactory.cpp" />
+    <ClCompile Include="src\Movement\QueenMovementStrategy.cpp" />
+    <ClCompile Include="src\Movement\RookMovementStrategy.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Bishop.hpp" />
-    <ClInclude Include="BishopMovementStrategy.hpp" />
-    <ClInclude Include="Board.hpp" />
-    <ClInclude Include="King.hpp" />
-    <ClInclude Include="KingMovementStrategy.hpp" />
-    <ClInclude Include="Knight.hpp" />
-    <ClInclude Include="IMovementStrategy.hpp" />
-    <ClInclude Include="KnightMovementStrategy.hpp" />
-    <ClInclude Include="Move.hpp" />
-    <ClInclude Include="MovementHelpers.hpp" />
-    <ClInclude Include="Pawn.hpp" />
-    <ClInclude Include="PawnMovementStrategy.hpp" />
-    <ClInclude Include="Piece.hpp" />
-    <ClInclude Include="PieceFactory.hpp" />
-    <ClInclude Include="Position.hpp" />
-    <ClInclude Include="Queen.hpp" />
-    <ClInclude Include="QueenMovementStrategy.hpp" />
-    <ClInclude Include="Rook.hpp" />
-    <ClInclude Include="RookMovementStrategy.hpp" />
-    <ClInclude Include="Square.hpp" />
-    <ClInclude Include="UTF_Pieces.hpp" />
+    <ClInclude Include="include\Pieces\Bishop.hpp" />
+    <ClInclude Include="include\Movement\BishopMovementStrategy.hpp" />
+    <ClInclude Include="include\Board\Board.hpp" />
+    <ClInclude Include="include\Pieces\King.hpp" />
+    <ClInclude Include="include\Movement\KingMovementStrategy.hpp" />
+    <ClInclude Include="include\Pieces\Knight.hpp" />
+    <ClInclude Include="include\Movement\IMovementStrategy.hpp" />
+    <ClInclude Include="include\Movement\KnightMovementStrategy.hpp" />
+    <ClInclude Include="include\Movement\Move.hpp" />
+    <ClInclude Include="include\Movement\MovementHelpers.hpp" />
+    <ClInclude Include="include\Pieces\Pawn.hpp" />
+    <ClInclude Include="include\Movement\PawnMovementStrategy.hpp" />
+    <ClInclude Include="include\Pieces\Piece.hpp" />
+    <ClInclude Include="include\Pieces\PieceFactory.hpp" />
+    <ClInclude Include="include\Board\Position.hpp" />
+    <ClInclude Include="include\Pieces\Queen.hpp" />
+    <ClInclude Include="include\Movement\QueenMovementStrategy.hpp" />
+    <ClInclude Include="include\Pieces\Rook.hpp" />
+    <ClInclude Include="include\Movement\RookMovementStrategy.hpp" />
+    <ClInclude Include="include\Board\Square.hpp" />
+    <ClInclude Include="include\Pieces\UTF_Pieces.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

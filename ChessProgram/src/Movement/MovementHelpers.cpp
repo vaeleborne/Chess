@@ -1,4 +1,4 @@
-#include "MovementHelpers.hpp";
+#include "../../include/Movement/MovementHelpers.hpp"
 
 void AddOffsetMoveIfValid(std::vector<Chess::Move>& moves, const Chess::Position& from, const Chess::Board& board, const Chess::Pieces::Piece& piece, int dx, int dy)
 {

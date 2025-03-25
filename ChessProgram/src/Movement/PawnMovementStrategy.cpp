@@ -1,5 +1,5 @@
-#include "PawnMovementStrategy.hpp"
-#include "Board.hpp"
+#include "../../include/Movement/PawnMovementStrategy.hpp"
+#include "../../include/Board/Board.hpp"
 
 namespace Chess::Pieces
 {

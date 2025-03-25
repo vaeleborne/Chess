@@ -1,5 +1,5 @@
-#include "BishopMovementStrategy.hpp"
-#include "MovementHelpers.hpp"
+#include "../../include/Movement/BishopMovementStrategy.hpp"
+#include "../../include/Movement/MovementHelpers.hpp"
 
 namespace Chess::Pieces
 {

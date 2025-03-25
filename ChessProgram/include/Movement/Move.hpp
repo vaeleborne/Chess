@@ -1,6 +1,6 @@
 #ifndef MOVE_HPP
 #define MOVE_HPP
-#include "Position.hpp"
+#include "../Board/Position.hpp"
 #include <memory>
 /**
  * @file    Move.hpp

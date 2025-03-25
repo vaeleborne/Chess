@@ -18,18 +18,12 @@
 #include "Queen.hpp"
 #include "King.hpp"
 #include <memory>
-#include "KnightMovementStrategy.hpp"
-#include "KingMovementStrategy.hpp"
-#include "PawnMovementStrategy.hpp"
-#include "RookMovementStrategy.hpp"
-#include "BishopMovementStrategy.hpp"
-#include "QueenMovementStrategy.hpp"
-
-
-
-
-
-
+#include "../Movement/KnightMovementStrategy.hpp"
+#include "../Movement/KingMovementStrategy.hpp"
+#include "../Movement/PawnMovementStrategy.hpp"
+#include "../Movement/RookMovementStrategy.hpp"
+#include "../Movement/BishopMovementStrategy.hpp"
+#include "../Movement/QueenMovementStrategy.hpp"
 
 namespace Chess::Pieces
 {

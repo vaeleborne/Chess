@@ -9,8 +9,8 @@
  * @version 1.0
  * @copyright MIT License
  */
-#include "Board.hpp"
-#include "Position.hpp"
+#include "../Board/Board.hpp"
+#include "../Board/Position.hpp"
 #include "Move.hpp"
 #include <vector>
 

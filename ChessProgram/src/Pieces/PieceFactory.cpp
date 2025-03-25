@@ -1,4 +1,4 @@
-#include "PieceFactory.hpp"
+#include "../../include/Pieces/PieceFactory.hpp"
 
 
 namespace Chess::Pieces

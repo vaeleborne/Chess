@@ -16,7 +16,7 @@
  */
 #include <memory>
 #include "Colorful_IO.hpp"
-#include "Piece.hpp"
+#include "../Pieces/Piece.hpp"
 
 namespace Chess
 {

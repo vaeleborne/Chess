@@ -1,5 +1,5 @@
-#include "RookMovementStrategy.hpp"
-#include "MovementHelpers.hpp"
+#include "../../include/Movement/RookMovementStrategy.hpp"
+#include "../../include/Movement/MovementHelpers.hpp"
 
 namespace Chess::Pieces
 {

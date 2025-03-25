@@ -1,5 +1,5 @@
-#include "KnightMovementStrategy.hpp"
-#include "Board.hpp"
+#include "../../include/Movement/KnightMovementStrategy.hpp"
+#include "../../include/Board/Board.hpp"
 
 namespace Chess::Pieces
 {

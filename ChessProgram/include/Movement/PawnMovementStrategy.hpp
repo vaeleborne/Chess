@@ -1,7 +1,7 @@
 #ifndef PAWN_MOVEMENT_STRATEGY_HPP
 #define PAWN_MOVEMENT_STRATEGY_HPP
 #include "IMovementStrategy.hpp"
-#include "Pawn.hpp"
+#include "../Pieces/Pawn.hpp"
 /**
  * @file    PawnMovementStrategy.hpp
  * @author  Dylan Morgan

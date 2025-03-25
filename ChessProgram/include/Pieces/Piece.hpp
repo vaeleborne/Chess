@@ -13,9 +13,9 @@
  *
  */
 
-#include "Position.hpp"
+#include "../Board/Position.hpp"
 #include "UTF_Pieces.hpp"
-#include "IMovementStrategy.hpp"
+#include "../Movement/IMovementStrategy.hpp"
 #include <vector>
 #include <map>
 #include <memory>
