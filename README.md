@@ -36,7 +36,6 @@ Implements object-oriented principles and software design patterns including Sin
 ├── src/
 │   └── (matches include/)
 ├── main.cpp
-├── CMakeLists.txt
 └── README.md
 ```
 
