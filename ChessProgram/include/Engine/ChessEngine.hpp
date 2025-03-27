@@ -14,7 +14,7 @@
  */
 namespace Chess::Engine
 {
-	class IGameState; // ✅ only a forward declaration
+	class IGameState;
 	class ChessEngine
 	{
 	private:
