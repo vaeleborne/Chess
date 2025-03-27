@@ -1,4 +1,4 @@
-#ifndef CHESS_ENGINE_HPP
+﻿#ifndef CHESS_ENGINE_HPP
 #define CHESS_ENGINE_HPP
 #include "IGameState.hpp"
 #include "../Board/Board.hpp"
@@ -14,6 +14,7 @@
  */
 namespace Chess::Engine
 {
+	class IGameState; // ✅ only a forward declaration
 	class ChessEngine
 	{
 	private:
