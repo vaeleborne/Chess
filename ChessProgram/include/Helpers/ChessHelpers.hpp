@@ -2,7 +2,15 @@
 #define CHESS_HELPERS_HPP
 #include <string>
 #include <sstream>
-namespace Chess
+/**
+ * @file    ChessHelpers.hpp
+ * @author  Dylan Morgan
+ * @brief   This file contains some general helper functions for the chess game
+ * @date    2025-03-28
+ * @version 1.0
+ * @copyright MIT License
+ */
+namespace Chess::Helpers
 {
 
 	std::string ToLower(const std::string& input)

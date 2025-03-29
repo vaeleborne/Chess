@@ -14,20 +14,36 @@ namespace Chess
 		if (!IsValidAlgebraic(input))
 			throw std::invalid_argument("Input must be a valid algebraic expression such as e2e4 or special expression such as quit!");
 
-		if (IsCastlingExpression(input))
+		if (Helpers::IsCastlingExpression(input))
 		{
 			Pieces::Color color = this->GetColor();
 			bool white = color == Pieces::Color::WHITE;
 			const Board& board = Engine::ChessEngine::Get().GetBoard();
 			Position from = white ? Position::FromAlgebraic("e1") : Position::FromAlgebraic("e8");
 		
-			if (IsKingSideCastle(input))
+			if (Helpers::IsKingSideCastle(input))
 			{
-				bool canKingsideCastle = board.CanCastleKingside(color);
-				if (canKingsideCastle)
+				if (board.CanCastleKingside(color))
 				{
 					Position to = white ? Position::FromAlgebraic("g1") : Position::FromAlgebraic("g8");
 					return Move(from, to, SpecialMove::KINGSIDE_CASTLE);
+				}
+				else
+				{
+					throw std::invalid_argument("Attempting to castle kingside, however that's possible currently!");
+				}
+			}
+			else
+			{
+				//Must be queenside
+				if (board.CanCastleQueenside(color))
+				{
+					Position to = white ? Position::FromAlgebraic("c1") : Position::FromAlgebraic("c8");
+					return Move(from, to, SpecialMove::QUEENSIDE_CASTLE);
+				}
+				else
+				{
+					throw std::invalid_argument("Attempting to castle queenside, however that's possible currently!");
 				}
 			}
 		}
@@ -40,13 +56,10 @@ namespace Chess
 
 	bool Player::IsValidAlgebraic(const std::string& input) const
 	{
-		std::string testStr = ToLower(input);
+		std::string testStr = Helpers::ToLower(input);
 
 		//Checking special cases of castling
-		if (testStr == "0-0" || testStr == "o-o")
-			return true;
-
-		if (testStr == "0-0-0" || testStr == "o-o-o")
+		if (Helpers::IsCastlingExpression(testStr))
 			return true;
 
 		//TODO: Add special valid algebraic expression checks here such as undo
