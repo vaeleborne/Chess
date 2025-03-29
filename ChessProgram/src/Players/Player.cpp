@@ -28,7 +28,7 @@ namespace Chess
 				}
 				else
 				{
-					throw std::invalid_argument("Attempting to castle kingside, however that's possible currently!");
+					throw std::invalid_argument("Attempting to castle kingside, however that's not possible currently!");
 				}
 			}
 			else
@@ -41,7 +41,7 @@ namespace Chess
 				}
 				else
 				{
-					throw std::invalid_argument("Attempting to castle queenside, however that's possible currently!");
+					throw std::invalid_argument("Attempting to castle queenside, however that's not possible currently!");
 				}
 			}
 		}
