@@ -16,33 +16,24 @@ namespace Chess
 		{
 			Pieces::Color color = this->GetColor();
 			bool white = color == Pieces::Color::WHITE;
-			const Board& board = Engine::ChessEngine::Get().GetBoard();
 			Position from = white ? Position::FromAlgebraic("e1") : Position::FromAlgebraic("e8");
 		
 			if (Helpers::IsKingSideCastle(input))
 			{
-				if (board.CanCastleKingside(color))
-				{
-					Position to = white ? Position::FromAlgebraic("g1") : Position::FromAlgebraic("g8");
-					return Move(from, to, SpecialMove::KINGSIDE_CASTLE);
-				}
-				else
-				{
+				if (!board.CanCastleKingside(color))
 					throw std::invalid_argument("Attempting to castle kingside, however that's not possible currently!");
-				}
+
+				Position to = white ? Position::FromAlgebraic("g1") : Position::FromAlgebraic("g8");
+				return Move(from, to, SpecialMove::KINGSIDE_CASTLE);
 			}
 			else
 			{
 				//Must be queenside
-				if (board.CanCastleQueenside(color))
-				{
-					Position to = white ? Position::FromAlgebraic("c1") : Position::FromAlgebraic("c8");
-					return Move(from, to, SpecialMove::QUEENSIDE_CASTLE);
-				}
-				else
-				{
+				if (!board.CanCastleQueenside(color))
 					throw std::invalid_argument("Attempting to castle queenside, however that's not possible currently!");
-				}
+
+				Position to = white ? Position::FromAlgebraic("c1") : Position::FromAlgebraic("c8");
+				return Move(from, to, SpecialMove::QUEENSIDE_CASTLE);
 			}
 		}
 
