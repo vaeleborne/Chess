@@ -1,7 +1,7 @@
 ﻿#ifndef SQUARE_HPP
 #define SQUARE_HPP
 /**
- * @file    Piece.hpp
+ * @file    Square.hpp
  * @author  Dylan Morgan
  * @brief   Defines the struct for a square
  * @date    2025-03-22
@@ -9,14 +9,14 @@
  * @copyright MIT License
 
  *
- * This class is part of the ChessEngine and implements the square struct, this will effectively be an
- * 8x8 array of Position pointers, if a pointer is null then the position is "empty" this struct will allow
- * for easier testing of legal moves as it can also denote white and black squares and be used to track threatened squares.
+ * This class is part of the ChessEngine and implements the square struct, this will hold a shared pointer to a piece which could 
+ * be null if there is none on the square, it also holds the color of the square, needed for drawing to the terminal
  *
  */
 #include <memory>
 #include "Colorful_IO.hpp"
 #include "../Pieces/Piece.hpp"
+
 
 namespace Chess
 {

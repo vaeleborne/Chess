@@ -4,10 +4,8 @@
 #include "../../include/Engine/ChessEngine.hpp"
 
 
-
 namespace Chess
 {
-	class Board;
 
 	Move Player::ParseAlgebraicMove(const std::string& input, const Board& board) const
 	{
