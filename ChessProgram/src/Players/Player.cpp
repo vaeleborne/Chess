@@ -16,13 +16,11 @@ namespace Chess
 
 		if (IsCastlingExpression(input))
 		{
-			Pieces::Color color = Engine::ChessEngine::Get().GetCurrentPlayer().GetColor();
+			Pieces::Color color = this->GetColor();
 			bool white = color == Pieces::Color::WHITE;
-			Board board = Engine::ChessEngine::Get().GetBoard();
+			const Board& board = Engine::ChessEngine::Get().GetBoard();
 			Position from = white ? Position::FromAlgebraic("e1") : Position::FromAlgebraic("e8");
 		
-
-
 			if (IsKingSideCastle(input))
 			{
 				bool canKingsideCastle = board.CanCastleKingside(color);
@@ -32,7 +30,6 @@ namespace Chess
 					return Move(from, to, SpecialMove::KINGSIDE_CASTLE);
 				}
 			}
-
 		}
 
 		Position from = Position::FromAlgebraic(input.substr(0, 2));
