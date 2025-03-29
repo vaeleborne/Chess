@@ -28,7 +28,7 @@ namespace Chess
 				bool canKingsideCastle = board.CanCastleKingside(color);
 				if (canKingsideCastle)
 				{
-					Position to = white ? Position::FromAlgebraic("g0") : Position::FromAlgebraic("g8");
+					Position to = white ? Position::FromAlgebraic("g1") : Position::FromAlgebraic("g8");
 					return Move(from, to, SpecialMove::KINGSIDE_CASTLE);
 				}
 			}
