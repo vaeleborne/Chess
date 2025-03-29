@@ -11,13 +11,17 @@
 #include "../Movement/Move.hpp"
 #include "../Board/Board.hpp"
 #include "../Pieces/Piece.hpp"
+#include "../Board/Board.hpp"
 
 namespace Chess
 {
+
 	class Player
 	{
 	protected:
 		Pieces::Color _color;
+		Move ParseAlgebraicMove(const std::string& input, const Board& board) const;
+		bool IsValidAlgebraic(const std::string& input) const;
 	public:
 		Player(Pieces::Color color) : _color(color){}
 		virtual ~Player() = default;

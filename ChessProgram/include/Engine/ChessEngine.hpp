@@ -25,12 +25,18 @@ namespace Chess::Engine
 		std::unique_ptr<IGameState> _gameState;
 		std::unique_ptr<Player> _playerWhite;
 		std::unique_ptr<Player> _playerBlack;
+		Player* _currentPlayer;					//Raw pointer used to track whose turn it is
 		bool running = true;
 
 	public:
 		static ChessEngine& Get();
 		void SetState(std::unique_ptr<IGameState> newState);
 		void Run();
+
+		const Player& GetCurrentPlayer() {
+			if (!_currentPlayer)
+				throw "No current player!";
+			return *_currentPlayer; }
 
 		Board& GetBoard();
 

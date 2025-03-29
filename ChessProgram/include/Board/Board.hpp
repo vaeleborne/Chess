@@ -52,6 +52,9 @@ namespace Chess
 		std::shared_ptr<Pieces::Piece> GetPieceAt(const Position& pos) const;
 		void MovePiece(std::shared_ptr<Pieces::Piece> piece, Position& from, Position& to);
 
+		bool CanCastleKingside(const Pieces::Color& color) const;
+		bool CanCastleQueenside(const Pieces::Color& color) const;
+
 		void Print();
 	};
 

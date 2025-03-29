@@ -75,5 +75,78 @@ namespace Chess
 		//TODO: IMPLEMENT
 		throw "NOT IMPLEMENTED";
 	}
+	bool Board::CanCastleKingside(const Pieces::Color& color) const
+	{
+		//Getting color to help check for castling universally
+		bool white = color == Pieces::Color::WHITE;
+		bool kingMoved = white ? state.whiteKingMoved : state.blackKingMoved;
+
+
+		//If the king has not yet moved, it may be able to castle
+		if (!kingMoved)
+		{
+			//Check for both kingside and queenside rooks to see if they have moved so we can check possible castling moves
+			bool kingsideRookMoved = white ? state.whiteKingsideRookMoved : state.blackKingsideRookMoved;
+			Position from = white ? Position::FromAlgebraic("e1") : Position::FromAlgebraic("e8");
+
+			//Check for kingside castling
+			if (!kingsideRookMoved)
+			{
+				//Getting the positions between the king and the kingside rook as we need to do a couple of checks with them
+				Position kingPlusOne = Position(from.file + 1, from.rank);
+				Position kingPlusTwo = Position(from.file + 2, from.rank);
+
+				//Make sure the path to the rook is clear (2 spaces to the right of piece must be empty for king side, the 3rd space is the rook)
+				if (this->GetSquare(kingPlusOne).IsEmpty() && this->GetSquare(kingPlusTwo).IsEmpty())
+				{
+					//Need to be sure we don't move through a check!
+					if (!this->IsCheck(from) && !this->IsCheck(kingPlusOne) && !this->IsCheck(kingPlusTwo))
+					{
+						//We can short castle!
+						return true;
+					}
+				}
+			}
+		}
+
+		return false;
+	}
+
+	bool Board::CanCastleQueenside(const Pieces::Color& color) const
+	{
+		//Getting color to help check for castling universally
+		bool white = color == Pieces::Color::WHITE;
+		bool kingMoved = white ? state.whiteKingMoved : state.blackKingMoved;
+
+
+		//If the king has not yet moved, it may be able to castle
+		if (!kingMoved)
+		{
+			//Check for both kingside and queenside rooks to see if they have moved so we can check possible castling moves
+			bool queensideRookMoved = white ? state.whiteQueensideRookMoved : state.blackQueensideRookMoved;
+			Position from = white ? Position::FromAlgebraic("e1") : Position::FromAlgebraic("e8");
+			//Check for queenside castling
+			if (!queensideRookMoved)
+			{
+				//Getting the positions between the king and the queenside rook to perform checks with
+				Position kingMinusOne = Position(from.file - 1, from.rank);
+				Position kingMinusTwo = Position(from.file - 2, from.rank);
+				Position kingMinusThree = Position(from.file - 3, from.rank);
+
+				//Checking that path is clear, there are 3 spaces between the king and the queenside rook
+				if (this->GetSquare(kingMinusOne).IsEmpty() && this->GetSquare(kingMinusTwo).IsEmpty() && this->GetSquare(kingMinusThree).IsEmpty())
+				{
+					//Make sure there wouldn't be a check (king will only move 2 spaces, no need to test for a check on the 3rd space)
+					if (!this->IsCheck(from) && !this->IsCheck(kingMinusOne) && !this->IsCheck(kingMinusTwo))
+					{
+						//We can long castle!
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+
 }
 
