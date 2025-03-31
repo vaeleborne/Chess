@@ -18,6 +18,9 @@ namespace Chess
 		HumanPlayer(Pieces::Color color) : Player(color) {}
 		~HumanPlayer() {}
 
+		/// <summary>
+		/// Prompt user for a move in algebraic format
+		/// </summary>
 		Move GetMove(const Board& board) override;
 	};
 }

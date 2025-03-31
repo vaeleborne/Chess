@@ -5,11 +5,17 @@
 #include "../include/Engine/ChessEngine.hpp"
 #include <Windows.h>
 
+#include "../include/Players/HumanPlayer.hpp"
+
 using namespace Chess;
 int main()
 {
 	SetConsoleOutputCP(CP_UTF8); //So that we can display the utf codes
 
-	Engine::ChessEngine::Get().GetBoard().Print();
+	HumanPlayer playerTest(Pieces::Color::WHITE);
+
+	playerTest.GetMove(Engine::ChessEngine::Get().GetBoard());
+
+	//Engine::ChessEngine::Get().GetBoard().Print();
 	return 0;
 }

@@ -165,6 +165,7 @@
     <ClInclude Include="include\Commands\PieceMoveCommand.hpp" />
     <ClInclude Include="include\Engine\ChessEngine.hpp" />
     <ClInclude Include="include\Engine\IGameState.hpp" />
+    <ClInclude Include="include\Helpers\ChessColorDefines.hpp" />
     <ClInclude Include="include\Helpers\ChessHelpers.hpp" />
     <ClInclude Include="include\Pieces\Bishop.hpp" />
     <ClInclude Include="include\Movement\BishopMovementStrategy.hpp" />

@@ -18,7 +18,7 @@ namespace Chess::Helpers
 		std::stringstream out;
 		for (char c : input)
 		{
-			out << std::tolower(c);
+			out << (char)std::tolower(c);
 		}
 		return out.str();
 	}
@@ -33,7 +33,7 @@ namespace Chess::Helpers
 	{
 		std::string test = ToLower(notation);
 		bool testSetOne = test == "0-0-0" || test == "0-0-o" || test == "0-o-0" || test == "0-o-o";
-		bool testSetTwo = test  == "o-0-0" || test == "o-0-o" || "o-o-0" || "o-o-o";
+		bool testSetTwo = test  == "o-0-0" || test == "o-0-o" || test == "o-o-0" || test == "o-o-o";
 
 		return testSetOne || testSetTwo;
 	}

@@ -12,6 +12,7 @@ namespace Chess
 		if (!IsValidAlgebraic(input))
 			throw std::invalid_argument("Input must be a valid algebraic expression such as e2e4 or special expression such as quit!");
 
+		//TODO: Move logic to a GetCastlingMoveFromAlgebraic helper?
 		if (Helpers::IsCastlingExpression(input))
 		{
 			Pieces::Color color = this->GetColor();
@@ -51,7 +52,7 @@ namespace Chess
 		if (Helpers::IsCastlingExpression(testStr))
 			return true;
 
-		//TODO: Add special valid algebraic expression checks here such as undo
+		//TODO: Add more special checks here
 		if (testStr == "u" || testStr == "undo" || testStr == "q" || testStr == "quit")
 			return true;
 
