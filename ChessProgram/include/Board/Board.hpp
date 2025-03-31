@@ -14,6 +14,7 @@
  * TODO: Implement Class!
  */
 #include <array>
+#include <memory>
 #include <Colorful_IO.hpp>
 #include "Square.hpp"
 #include "../Pieces/PieceFactory.hpp"
