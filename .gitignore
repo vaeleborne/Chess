@@ -6,3 +6,4 @@ ChessProgram/ChessProgram.vcxproj.filters
 ChessProgram/ChessProgram.vcxproj.user
 ChessProgram/packages
 *.user
+ChessProgram/tests/ChessEngineUnitTests/ChessEngineUnitTests.vcxproj.filters

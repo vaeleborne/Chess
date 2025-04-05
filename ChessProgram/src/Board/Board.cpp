@@ -65,10 +65,14 @@ namespace Chess
 		ColorfulIO::Write(std::cout, "  a b c d e f g h", true, true, ColorfulIO::Colors::Foreground::RED);
 	}
 
+	Square Board::GetSquare(const Position& p) const
+	{
+		return this->squares[p.rank][p.file];
+	}
+
 	std::shared_ptr<Pieces::Piece> Board::GetPieceAt(const Position& pos) const
 	{
-		//TODO: IMPLEMENT
-		throw "NOT IMPLEMENTED";
+		return this->GetSquare(pos).piece;
 	}
 	void Board::MovePiece(std::shared_ptr<Pieces::Piece> piece, Position& from, Position& to)
 	{

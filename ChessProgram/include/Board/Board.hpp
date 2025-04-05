@@ -50,7 +50,7 @@ namespace Chess
 		/// <summary>
 		/// Function to Initialize the board
 		/// </summary>
-		void Initialize();
+		void Initialize() {}
 
 		//TODO: IMPLEMENT IsCheck, LIKELY NEED TO ADD PARAMETER FOR ATTACKING COLOR
 		
@@ -64,7 +64,7 @@ namespace Chess
 		/// <summary>
 		/// Returns a square that is like the one at a given position
 		/// </summary>
-		Square GetSquare(const Position& p) const { return squares[p.file][p.rank]; } 
+		Square GetSquare(const Position& p) const;
 
 		/// <summary>
 		/// Returns a shared pointer representing a piece at a given position
