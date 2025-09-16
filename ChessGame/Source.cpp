@@ -6,6 +6,7 @@
 #include <Windows.h>
 
 #include "../ChessProgram/include/Players/HumanPlayer.hpp"
+#include "../ChessProgram/include/Engine/ChessEngine.hpp"
 using namespace Chess;
 
 int main()
@@ -16,9 +17,12 @@ int main()
 
 	b.Print();
 
-	//HumanPlayer playerTest(Pieces::Color::WHITE);
+	HumanPlayer playerTest(Pieces::Color::WHITE);
 
-	//playerTest.GetMove(Engine::ChessEngine::Get().GetBoard());
+	//Get a move
+	Move m = playerTest.GetMove(Engine::ChessEngine::Get().GetBoard());
+
+	
 
 	return 0;
 }

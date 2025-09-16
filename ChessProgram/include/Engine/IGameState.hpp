@@ -11,6 +11,7 @@
 #include "ChessEngine.hpp"
 namespace Chess::Engine
 {
+	class ChessEngine;
 	class IGameState
 	{
 	public:

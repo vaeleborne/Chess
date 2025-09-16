@@ -39,7 +39,18 @@ namespace Chess
 				try
 				{
 					//TODO: Add checks for special commands here?
-					return ParseAlgebraicMove(notation, board);
+					Move move = ParseAlgebraicMove(notation, board);
+
+					//Move has been parsed, check validity based on pieces
+
+					std::vector<Move> legal_moves = board.GetPieceAt(move.from)->GetLegalMoves(move.from, board);
+
+					auto itr = std::find(legal_moves.begin(), legal_moves.end(), move);
+
+					if (itr != legal_moves.end())
+						return *itr;
+					else throw std::invalid_argument("That is not a legal move!");
+
 				}
 				catch(std::invalid_argument err)
 				{

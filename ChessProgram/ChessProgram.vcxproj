@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -164,7 +164,13 @@
     <ClInclude Include="include\Commands\IMoveCommand.hpp" />
     <ClInclude Include="include\Commands\PieceMoveCommand.hpp" />
     <ClInclude Include="include\Engine\ChessEngine.hpp" />
+    <ClInclude Include="include\Engine\ExitState.hpp" />
+    <ClInclude Include="include\Engine\GameOverState.hpp" />
     <ClInclude Include="include\Engine\IGameState.hpp" />
+    <ClInclude Include="include\Engine\MainMenuState.hpp" />
+    <ClInclude Include="include\Engine\NewGameState.hpp" />
+    <ClInclude Include="include\Engine\PlayerTwoState.hpp" />
+    <ClInclude Include="include\Engine\PlayerOneState.hpp" />
     <ClInclude Include="include\Helpers\ChessColorDefines.hpp" />
     <ClInclude Include="include\Helpers\ChessHelpers.hpp" />
     <ClInclude Include="include\Pieces\Bishop.hpp" />
