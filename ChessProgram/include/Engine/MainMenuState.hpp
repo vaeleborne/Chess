@@ -15,6 +15,9 @@ namespace Chess::Engine
 	class MainMenuState : public IGameState
 	{
 	public:
+		/// <summary>
+		/// Displays the game's main menu and prompts the user for what they want to do
+		/// </summary>
 		void Update() override;
 	};
 }

@@ -4,7 +4,7 @@ namespace Chess::Engine
 {
 	std::unique_ptr<ChessEngine> ChessEngine::_instance = nullptr;
 
-	ChessEngine::ChessEngine() : _board(std::make_unique<Board>()){}
+	ChessEngine::ChessEngine() : _board(std::make_unique<Board>()), _gameState(std::make_unique<MainMenuState>()){}
 
 	ChessEngine& ChessEngine::Get()
 	{
@@ -22,8 +22,15 @@ namespace Chess::Engine
 	}
 	void ChessEngine::Run()
 	{
-		//TODO: Implement
-		throw "Not implemented";
+		running = true;
+
+		while (running)
+		{
+			if (_gameState != nullptr)
+			{
+				_gameState->Update();
+			}
+		}
 	}
 	Board& ChessEngine::GetBoard()
 	{
@@ -31,8 +38,7 @@ namespace Chess::Engine
 	}
 	void ChessEngine::Stop()
 	{
-		//TODO: Implement
-		throw "Not implemented";
+		running = false;
 	}
 	void ChessEngine::Print()
 	{

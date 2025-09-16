@@ -147,6 +147,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Engine\ChessEngine.cpp" />
+    <ClCompile Include="src\Engine\ExitState.cpp" />
+    <ClCompile Include="src\Engine\MainMenuState.cpp" />
+    <ClCompile Include="src\Engine\NewGameState.cpp" />
     <ClCompile Include="src\Movement\BishopMovementStrategy.cpp" />
     <ClCompile Include="src\Board\Board.cpp" />
     <ClCompile Include="src\Movement\KingMoveStrategy.cpp" />
