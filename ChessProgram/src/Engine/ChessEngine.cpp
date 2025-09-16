@@ -34,6 +34,12 @@ namespace Chess::Engine
 			_currentPlayer = nullptr;
 	}
 
+	void ChessEngine::ProcessMove(const Move& move)
+	{
+		//TODO: Implement
+		throw "Not Implemented";
+	}
+
 	ChessEngine& ChessEngine::Get()
 	{
 		if (!_instance)

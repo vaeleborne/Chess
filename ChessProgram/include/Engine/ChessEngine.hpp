@@ -27,6 +27,9 @@ namespace Chess::Engine
 		std::unique_ptr<Player> _playerWhite;
 		std::unique_ptr<Player> _playerBlack;
 
+		//TODO: Add list of player white captured pieces
+		//TODO: Add list of player black captured pieces
+
 		Player* _currentPlayer;					//Raw pointer used to track whose turn it is
 
 		bool running = true;
@@ -41,8 +44,10 @@ namespace Chess::Engine
 		void CreatePlayerBlack(std::unique_ptr<Player> player);
 		void SetCurrentPlayer(Pieces::Color color);
 
+		void ProcessMove(const Move& move);
+
 		//TODO: Move to CPP
-		const Player& GetCurrentPlayer() {
+	    Player& GetCurrentPlayer() {
 			if (!_currentPlayer)
 				throw "No current player!";
 			return *_currentPlayer; }

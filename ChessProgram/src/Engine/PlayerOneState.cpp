@@ -16,5 +16,13 @@ namespace Chess::Engine
 
 		ChessEngine::Get().Stop();
 
+		//TODO: Get Player One Move
+		Move player_move = ChessEngine::Get().GetCurrentPlayer().GetMove(ChessEngine::Get().GetBoard());
+
+		//TODO: Call Engine To Process Move
+		ChessEngine::Get().ProcessMove(player_move);
+
+		//TODO: Transition State (Not needed? Can Just Use a 'Play' state?
+
 	}
 }
