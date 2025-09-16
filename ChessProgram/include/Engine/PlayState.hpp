@@ -3,7 +3,7 @@
 /**
  * @file    PlayState.hpp
  * @author  Dylan Morgan
- * @brief   Defines the concrete gamestate for player one's turn
+ * @brief   Defines the concrete gamestate for a player's turn
  * @date    2025-09-10
  * @version 1.0
  * @copyright MIT License
