@@ -5,7 +5,8 @@
 
 namespace Chess
 {
-	
+	//TODO: ADD OPTION TO LIST POSSIBLE MOVES? (Stretch Goal, not needed for MVP)
+
 	Move HumanPlayer::GetMove(const Board& board)
 	{
 		bool validInput = false;
@@ -13,14 +14,15 @@ namespace Chess
 
 		do
 		{
-			//Clear screen
-			ColorfulIO::ClearConsole(std::cout);
+			ColorfulIO::WriteHeading(std::cout, "Chess++", 60, 5, true, true, Colors::HEADING_COLOR);
+			std::cout << std::endl;
 
 			//Draw Board
 			Engine::ChessEngine::Get().GetBoard().Print();
 
 			//Prompt User:
-			ColorfulIO::Write(std::cout, "\n\nEnter Your Desired Move In Algebraic Notation: ", false, true, Colors::PROMPT_COLOR);
+			std::string prompt = "\n\n" + _name + ", Please Enter Your Desired Move In Algebraic Notation: ";
+			ColorfulIO::Write(std::cout, prompt, false, true, Colors::PROMPT_COLOR);
 
 			//Get Possible Notation
 			notation = ColorfulIO::GetTrimmedLineFromUser();

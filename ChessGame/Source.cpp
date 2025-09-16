@@ -13,18 +13,7 @@ int main()
 {
 	SetConsoleOutputCP(CP_UTF8); //So that we can display the utf codes
 
-	//Chess::Board b;
-
 	Chess::Engine::ChessEngine::Get().Run();
-
-	//b.Print();
-
-	//HumanPlayer playerTest(Pieces::Color::WHITE);
-
-	//Get a move
-	//Move m = playerTest.GetMove(Engine::ChessEngine::Get().GetBoard());
-
-	
 
 	return 0;
 }

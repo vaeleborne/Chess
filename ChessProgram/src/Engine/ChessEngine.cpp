@@ -5,13 +5,17 @@ namespace Chess::Engine
 	std::unique_ptr<ChessEngine> ChessEngine::_instance = nullptr;
 
 	ChessEngine::ChessEngine() : _board(std::make_unique<Board>()), _gameState(std::make_unique<MainMenuState>()),
-		_currentPlayer(nullptr), _playerWhite(nullptr), _playerBlack(nullptr) {}
+		_currentPlayer(nullptr), _playerWhite(nullptr), _playerBlack(nullptr) 
+	{	
+		_movement_commands = std::stack<std::unique_ptr<Commands::IMoveCommand>>();
+	}
 
 	void ChessEngine::Reset() {
 		_board = std::make_unique<Board>();
 		_currentPlayer = nullptr;
 		_playerWhite = nullptr;
 		_playerBlack = nullptr;
+		_movement_commands.empty();
 	}
 
 	void ChessEngine::CreatePlayerWhite(std::unique_ptr<Player> player)
@@ -34,10 +38,22 @@ namespace Chess::Engine
 			_currentPlayer = nullptr;
 	}
 
-	void ChessEngine::ProcessMove(const Move& move)
+	void ChessEngine::AddMoveCommand(std::unique_ptr<Commands::IMoveCommand> command)
 	{
-		//TODO: Implement
-		throw "Not Implemented";
+		_movement_commands.push(std::move(command));
+	}
+
+	void ChessEngine::UndoLastMoveCommand()
+	{
+		//TODO: ERROR HANDLING
+		_movement_commands.top()->Undo(*_board.get());
+		_movement_commands.pop();
+	}
+
+	void ChessEngine::ProcessCurrentMove()
+	{
+		//TODO: ERROR HANDLING
+		_movement_commands.top()->Execute(*_board.get());
 	}
 
 	ChessEngine& ChessEngine::Get()

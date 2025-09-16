@@ -146,6 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Commands\PieceMoveCommand.cpp" />
     <ClCompile Include="src\Engine\ChessEngine.cpp" />
     <ClCompile Include="src\Engine\ExitState.cpp" />
     <ClCompile Include="src\Engine\MainMenuState.cpp" />
@@ -173,7 +174,6 @@
     <ClInclude Include="include\Engine\IGameState.hpp" />
     <ClInclude Include="include\Engine\MainMenuState.hpp" />
     <ClInclude Include="include\Engine\NewGameState.hpp" />
-    <ClInclude Include="include\Engine\PlayerTwoState.hpp" />
     <ClInclude Include="include\Engine\PlayState.hpp" />
     <ClInclude Include="include\Helpers\ChessColorDefines.hpp" />
     <ClInclude Include="include\Helpers\ChessHelpers.hpp" />

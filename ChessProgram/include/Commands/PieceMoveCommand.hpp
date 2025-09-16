@@ -19,7 +19,11 @@ namespace Chess::Commands {
 		Move _move;
 
 	public:
+		PieceCommand(const Move& move) : _move(move) {}
 
+		void Execute(Board& board) override;
+
+		void Undo(Board& board) override;
 
 
 	};
