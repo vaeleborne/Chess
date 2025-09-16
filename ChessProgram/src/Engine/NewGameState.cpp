@@ -1,6 +1,6 @@
 #include "../../include/Engine/NewGameState.hpp"
 #include "../../include/Engine/ExitState.hpp"
-#include "../../include/Engine/PlayerOneState.hpp"
+#include "../../include/Engine/PlayState.hpp"
 #include "../../include/Players/HumanPlayer.hpp"
 #include "../../include/Helpers/ChessColorDefines.hpp"
 
@@ -68,7 +68,7 @@ namespace Chess::Engine
 		ChessEngine::Get().CreatePlayerBlack(std::make_unique<HumanPlayer>(Pieces::Color::BLACK, player_two_name));
 		ChessEngine::Get().SetCurrentPlayer(Pieces::Color::WHITE);
 
-		//Transition to Player 1's Turn State
-		ChessEngine::Get().SetState(std::make_unique<PlayerOneState>());
+		//Transition to the Play State
+		ChessEngine::Get().SetState(std::make_unique<PlayState>());
 	}
 }

@@ -1,9 +1,9 @@
-#ifndef PLAYER_TWO_STATE_HPP
-#define PLAYER_TWO_STATE_HPP
+#ifndef PLAY_STATE_HPP
+#define PLAY_STATE_HPP
 /**
- * @file    PlayerTwoState.hpp
+ * @file    PlayState.hpp
  * @author  Dylan Morgan
- * @brief   Defines the concrete gamestate for player two's turn
+ * @brief   Defines the concrete gamestate for player one's turn
  * @date    2025-09-10
  * @version 1.0
  * @copyright MIT License
@@ -12,7 +12,7 @@
 #include "ChessEngine.hpp"
 namespace Chess::Engine
 {
-	class PlayerTwoState : public IGameState
+	class PlayState : public IGameState
 	{
 	public:
 		void Update() override;
