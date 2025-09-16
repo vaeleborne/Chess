@@ -6,6 +6,10 @@
 
 namespace Chess
 {
+	void Player::SetName(std::string name)
+	{
+		this->_name = name;
+	}
 
 	Move Player::ParseAlgebraicMove(const std::string& input, const Board& board) const
 	{

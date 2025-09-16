@@ -150,6 +150,7 @@
     <ClCompile Include="src\Engine\ExitState.cpp" />
     <ClCompile Include="src\Engine\MainMenuState.cpp" />
     <ClCompile Include="src\Engine\NewGameState.cpp" />
+    <ClCompile Include="src\Engine\PlayerOneState.cpp" />
     <ClCompile Include="src\Movement\BishopMovementStrategy.cpp" />
     <ClCompile Include="src\Board\Board.cpp" />
     <ClCompile Include="src\Movement\KingMoveStrategy.cpp" />
@@ -160,7 +161,7 @@
     <ClCompile Include="src\Pieces\PieceFactory.cpp" />
     <ClCompile Include="src\Movement\QueenMovementStrategy.cpp" />
     <ClCompile Include="src\Movement\RookMovementStrategy.cpp" />
-    <ClCompile Include="src\Players\HumanPlayers.cpp" />
+    <ClCompile Include="src\Players\HumanPlayer.cpp" />
     <ClCompile Include="src\Players\Player.cpp" />
   </ItemGroup>
   <ItemGroup>

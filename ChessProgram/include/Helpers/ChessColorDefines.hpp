@@ -7,6 +7,7 @@ namespace Chess::Colors
 	inline const std::string PROMPT_COLOR = ColorfulIO::Colors::Foreground::HI_GREEN;
 	inline const std::string INVALID_INPUT = ColorfulIO::Colors::Foreground::HI_RED;
 	inline const std::string ERROR = ColorfulIO::Colors::Foreground::BOLD_RED;
+	inline const std::string HEADING_COLOR = ColorfulIO::Colors::Foreground::YELLOW;
 }
 
 

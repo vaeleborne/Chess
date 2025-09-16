@@ -35,6 +35,11 @@ namespace Chess::Engine
 		static ChessEngine& Get();
 		void SetState(std::unique_ptr<IGameState> newState);
 		void Run();
+		void Reset();
+
+		void CreatePlayerWhite(std::unique_ptr<Player> player);
+		void CreatePlayerBlack(std::unique_ptr<Player> player);
+		void SetCurrentPlayer(Pieces::Color color);
 
 		//TODO: Move to CPP
 		const Player& GetCurrentPlayer() {

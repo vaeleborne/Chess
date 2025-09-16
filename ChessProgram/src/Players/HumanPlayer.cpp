@@ -5,6 +5,7 @@
 
 namespace Chess
 {
+	
 	Move HumanPlayer::GetMove(const Board& board)
 	{
 		bool validInput = false;

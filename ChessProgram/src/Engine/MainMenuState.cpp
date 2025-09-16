@@ -1,6 +1,9 @@
+
 #include "../../include/Engine/MainMenuState.hpp"
 #include "../../include/Engine/ExitState.hpp"
 #include "../../include/Engine/NewGameState.hpp"
+#include "../../include/Helpers/ChessColorDefines.hpp"
+
 
 namespace Chess::Engine
 {
@@ -11,11 +14,11 @@ namespace Chess::Engine
 
 		do 
 		{
-			ColorfulIO::WriteHeading(std::cout, "Chess++", 60, 5, true, true, ColorfulIO::Colors::Foreground::YELLOW);
-			ColorfulIO::WriteNewLines(std::cout);
-			ColorfulIO::Write(std::cout, "1) New Game", true, true, ColorfulIO::Colors::Foreground::BOLD_WHITE);
-			ColorfulIO::Write(std::cout, "9) Exit", true, true, ColorfulIO::Colors::Foreground::BOLD_WHITE);
-			ColorfulIO::Write(std::cout, "Enter Choice: ", false, true, ColorfulIO::Colors::Foreground::BOLD_WHITE);
+			ColorfulIO::WriteHeading(std::cout, "Chess++", 60, 5, true, true, Colors::HEADING_COLOR);
+			std::cout << std::endl;
+
+			ColorfulIO::Write(std::cout, "1) New Game\n9) Exit\n", true, true, Colors::PROMPT_COLOR);
+			ColorfulIO::Write(std::cout, "Enter Choice: ", false, true, Colors::PROMPT_COLOR);
 
 			input = ColorfulIO::GetKey();
 

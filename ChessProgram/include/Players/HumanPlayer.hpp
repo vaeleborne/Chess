@@ -15,7 +15,7 @@ namespace Chess
 	class HumanPlayer : public Player
 	{
 	public:
-		HumanPlayer(Pieces::Color color) : Player(color) {}
+		HumanPlayer(Pieces::Color color, std::string name) : Player(color, name) {}
 		~HumanPlayer() {}
 
 		/// <summary>
