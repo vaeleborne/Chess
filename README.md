@@ -5,33 +5,35 @@ Implements object-oriented principles and software design patterns including Sin
 
 ---
 
-## 🧠 Features
+## Features
 
-- ✅ Terminal-based interface
-- ♟️ Full piece movement & rules
+- Terminal-based interface
+- Full piece movement & rules
   - Basic movement
   - Castling
   - En Passant
   - Promotion
-- 🧩 Software design patterns
+- Software design patterns
   - Singleton (Chess Engine)
   - Strategy (Movement behavior)
   - State (Game states)
   - Factory (Piece creation)
-- 🧪 Testable, modular architecture
-- 💡 Designed with extensibility in mind (AI, GUI, networking all as stretch goals)
+  - Command (Movement Commands)
+- Testable, modular architecture
+- Designed with extensibility in mind (AI, GUI, networking all as stretch goals)
 
 ---
 
 ## 📁 Project Structure
 
 ```bash
-.
 ├── include/
 │    ├── Board/
-│    ├── Pieces/
-│    ├── Movement/
+│    ├── Commands/
 │    ├── Engine/
+│    ├── Helpers/
+│    ├── Movement/
+│    ├── Pieces/
 │    └── Players/
 ├── src/
 │   └── (matches include/)
@@ -39,17 +41,17 @@ Implements object-oriented principles and software design patterns including Sin
 └── README.md
 ```
 
-## 🎯 Goals
+## Goals
 - This project was built to:
   - Practice writing clean and modern C++ code
   - Practice with implementing software design patterns
   - Add to my portfolio
 
-## 📸 Screenshots / Terminal Output
+## Screenshots / Terminal Output
 
 ![Chess_01](https://github.com/user-attachments/assets/ef30b4f0-b34b-4ae8-9f0d-a14922d2d699)
 
-## 🛠️ Roadmap
+## Roadmap
  - [x] Core rules + legal moves
  - [x] Modular architecture
  - [ ] Playable Game
@@ -57,7 +59,7 @@ Implements object-oriented principles and software design patterns including Sin
  - [ ] AI player (basic)
  - [ ] Save/load game state
 
-## 🧑‍💻 Author
+## Author
 **Dylan Morgan**
 
 [Portfolio Site](dylanmorgan-dev.com) | [LinkedIn](https://www.linkedin.com/in/dylan-morgan-a6535817b/) 
