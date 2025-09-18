@@ -77,12 +77,12 @@ namespace Chess
 
 	Square Board::GetSquare(const Position& p) const
 	{
-		return this->squares[p.rank][p.file];
+		return squares[p.rank][p.file];
 	}
 
 	std::shared_ptr<Pieces::Piece> Board::GetPieceAt(const Position& pos) const
 	{
-		return this->GetSquare(pos).piece;
+		return GetSquare(pos).piece;
 	}
 
 	void Board::MovePiece(std::shared_ptr<Pieces::Piece> piece, Position& from, Position& to)

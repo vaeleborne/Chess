@@ -89,10 +89,10 @@ namespace Chess::Pieces
 		}
 
 		//Check for diagonal takeover (may also be a promotion!)
-		Position leftDiagonal = Position(from.file - 1, forwardOne.rank + 1);
+		Position leftDiagonal = Position(from.file - 1, forwardOne.rank);
 		CheckAndAddDiagonalMove(moves, from, leftDiagonal, board, *thisPawn);
 
-		Position rightDiagonal = Position(from.file + 1, forwardOne.rank + 1);
+		Position rightDiagonal = Position(from.file + 1, forwardOne.rank);
 		CheckAndAddDiagonalMove(moves, from, rightDiagonal, board, *thisPawn);
 			
 

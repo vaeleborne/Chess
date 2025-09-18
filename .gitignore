@@ -8,3 +8,4 @@ ChessProgram/packages
 *.user
 ChessProgram/tests/ChessEngineUnitTests/ChessEngineUnitTests.vcxproj.filters
 ChessGame/StateTransitionDiagram.txt
+ChessProgram/enc_temp_folder/1b5117709f3283dea19583c03364a525/Board.cpp
