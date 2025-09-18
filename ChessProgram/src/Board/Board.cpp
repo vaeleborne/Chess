@@ -87,15 +87,24 @@ namespace Chess
 
 	void Board::MovePiece(std::shared_ptr<Pieces::Piece> piece, Position& from, Position& to)
 	{
+		//Ensures the enPassant target is only valid for one turn
+		if (state.enPassantTarget.has_value() && piece->GetColor() == GetPieceAt(state.enPassantTarget.value())->GetColor())
+		{
+			state.enPassantTarget.reset();
+		}
+
 		if (squares.size() >= to.rank && squares[to.rank].size() >= to.file)
 		{
-
 			squares[to.rank][to.file].piece = piece;
 			//TODO: Set piece as has moved!
 
 			if (piece->GetSymbol() == Pieces::PAWN_UTF)
 			{
-				std::dynamic_pointer_cast<Pieces::Pawn>(piece)->MarkAsMoved();
+				if (std::dynamic_pointer_cast<Pieces::Pawn>(piece)->HasMoved() == false)
+				{
+					state.enPassantTarget = to;
+					std::dynamic_pointer_cast<Pieces::Pawn>(piece)->MarkAsMoved();
+				}
 			}
 
 			squares[from.rank][from.file].piece = nullptr;

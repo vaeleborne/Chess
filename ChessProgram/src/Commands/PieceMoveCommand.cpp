@@ -7,16 +7,20 @@ namespace Chess::Commands
 		//Get the piece to move
 		std::shared_ptr<Pieces::Piece> current_piece = board.GetPieceAt(_move.from);
 		board.MovePiece(current_piece, _move.from, _move.to);
-
-		//Check if there is a captured piece
-		//if (_move.capturedPiece != nullptr)
-		//{
-		//	//TODO: Remove captured piece
-		//	board.RemovePiece(_move.to);
-
-		//	//TODO: HANDLE EN PASSANT
-		//}
 		
+		if (_move.capturedPiece != nullptr)
+		{
+			if (board.state.enPassantTarget.has_value() && abs((int)_move.from.file) - (board.state.enPassantTarget.value().file))
+			{
+				board.RemovePiece(board.state.enPassantTarget.value());
+			}
+			else
+			{
+				board.RemovePiece(_move.to);
+			}
+			
+		}
+
 		
 	}
 
