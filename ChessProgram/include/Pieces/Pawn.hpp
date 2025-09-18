@@ -29,7 +29,7 @@ namespace Chess::Pieces
 		Color GetColor() const { return color; }
 		//For checking if the pawn has moved and also setting that value to true (but not back to false)
 		bool HasMoved() const { return _hasMoved; }
-		bool MarkAsMoved() { _hasMoved = true; }
+		void MarkAsMoved() { _hasMoved = true; }
 
 		std::string GetSymbol() const override
 		{

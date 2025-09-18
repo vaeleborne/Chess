@@ -82,7 +82,10 @@ namespace Chess
 
 	std::shared_ptr<Pieces::Piece> Board::GetPieceAt(const Position& pos) const
 	{
-		return this->GetSquare(pos).piece;
+		return this->GetSquare(pos).piece == nullptr ? nullptr : this->GetSquare(pos).piece;
+		//if(this->GetSquare(pos).piece != nullptr)
+			//return 
+		//return this->GetSquare(pos).piece;
 	}
 
 	void Board::MovePiece(std::shared_ptr<Pieces::Piece> piece, Position& from, Position& to)

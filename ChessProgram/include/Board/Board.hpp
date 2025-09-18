@@ -82,6 +82,11 @@ namespace Chess
 		/// </summary>
 		bool CanCastleQueenside(const Pieces::Color& color) const;
 
+		/// <summary>
+		/// Function to remove a piece at a given position
+		/// </summary>
+		void RemovePiece(const Position& pos);
+
 		void Print();
 	};
 

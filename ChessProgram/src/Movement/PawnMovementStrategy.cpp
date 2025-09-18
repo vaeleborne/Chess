@@ -89,16 +89,17 @@ namespace Chess::Pieces
 		}
 
 		//Check for diagonal takeover (may also be a promotion!)
-		Position leftDiagonal = Position(from.file - 1, forwardOne.rank);
+		Position leftDiagonal = Position(from.file - 1, forwardOne.rank + 1);
 		CheckAndAddDiagonalMove(moves, from, leftDiagonal, board, *thisPawn);
 
-		Position rightDiagonal = Position(from.file + 1, forwardOne.rank);
+		Position rightDiagonal = Position(from.file + 1, forwardOne.rank + 1);
 		CheckAndAddDiagonalMove(moves, from, rightDiagonal, board, *thisPawn);
 			
 
 		//Check for en passant
 		if (board.state.enPassantTarget.has_value())
 		{
+			//TODO: Fix LOGIC, 
 			auto& epTarget = board.state.enPassantTarget.value();
 			if (epTarget.IsValid() && std::abs((int)epTarget.file - (int)from.file) == 1)
 			{
