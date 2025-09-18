@@ -44,24 +44,68 @@ namespace Chess::Engine
 		//Get Player(s) name(s)
 		std::string player_one_name;
 		std::string player_two_name;
-		ColorfulIO::WriteHeading(std::cout, "Chess++", 60, 5, true, true, Colors::HEADING_COLOR);
-		std::cout << std::endl;
-		if (input == '1')
-		{
-			ColorfulIO::Write(std::cout, "Enter Your Name: ", false, true, Colors::PROMPT_COLOR);
-			player_one_name = ColorfulIO::GetTrimmedLineFromUser(std::cin);
-			player_two_name = "Bot";
-		}
-		else if (input == '2')
-		{
-			ColorfulIO::Write(std::cout, "Enter Name For Player One: ", false, true, Colors::PROMPT_COLOR);
-			player_one_name = ColorfulIO::GetTrimmedLineFromUser(std::cin);
 
+		do
+		{
 			ColorfulIO::WriteHeading(std::cout, "Chess++", 60, 5, true, true, Colors::HEADING_COLOR);
 			std::cout << std::endl;
-			ColorfulIO::Write(std::cout, "Enter Name For Player Two: ", false, true, Colors::PROMPT_COLOR);
-			player_two_name = ColorfulIO::GetTrimmedLineFromUser(std::cin);
-		}
+			if (input == '1')
+			{
+				ColorfulIO::Write(std::cout, "Enter Your Name: ", false, true, Colors::PROMPT_COLOR);
+
+				try
+				{
+					player_one_name = ColorfulIO::GetTrimmedLineFromUser(std::cin);
+					valid_input = true;
+				}
+				catch (std::invalid_argument err)
+				{
+					valid_input = false;
+					continue;
+				}
+				
+				player_two_name = "Bot";
+			}
+			else if (input == '2')
+			{
+				ColorfulIO::Write(std::cout, "Enter Name For Player One: ", false, true, Colors::PROMPT_COLOR);
+
+				try
+				{
+					player_one_name = ColorfulIO::GetTrimmedLineFromUser(std::cin);
+					valid_input = true;
+				}
+				catch (std::invalid_argument err)
+				{
+					valid_input = false;
+					continue;
+				}
+
+				//Inner loop for the second player's name input, we don't need to redo first player if they enter invalid
+				bool player_two_valid_input = true;
+
+				do
+				{
+					ColorfulIO::WriteHeading(std::cout, "Chess++", 60, 5, true, true, Colors::HEADING_COLOR);
+					std::cout << std::endl;
+					ColorfulIO::Write(std::cout, "Enter Name For Player Two: ", false, true, Colors::PROMPT_COLOR);
+
+					try
+					{
+						player_two_name = ColorfulIO::GetTrimmedLineFromUser(std::cin);
+						player_two_valid_input = true;
+
+					}
+					catch (std::invalid_argument err)
+					{
+						player_two_valid_input = false;
+						continue;
+					}
+
+				} while (!player_two_valid_input);
+			}
+		} while (!valid_input);
+		
 
 		//Add players to the engine and set White to be current player
 		ChessEngine::Get().CreatePlayerWhite(std::make_unique<HumanPlayer>(Pieces::Color::WHITE, player_one_name));
