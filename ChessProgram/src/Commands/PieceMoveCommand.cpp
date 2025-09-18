@@ -18,10 +18,7 @@ namespace Chess::Commands
 			{
 				board.RemovePiece(_move.to);
 			}
-			
-		}
-
-		
+		}	
 	}
 
 	void PieceCommand::Undo(Board& board)

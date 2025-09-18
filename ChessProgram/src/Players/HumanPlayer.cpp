@@ -7,7 +7,7 @@ namespace Chess
 {
 	//TODO: ADD OPTION TO LIST POSSIBLE MOVES? (Stretch Goal, not needed for MVP)
 
-	Move HumanPlayer::GetMove(const Board& board)
+	std::optional<Move> HumanPlayer::GetMove(const Board& board)
 	{
 		bool validInput = false;
 		std::string notation;
@@ -25,7 +25,16 @@ namespace Chess
 			ColorfulIO::Write(std::cout, prompt, false, true, Colors::PROMPT_COLOR);
 
 			//Get Possible Notation
-			notation = ColorfulIO::GetTrimmedLineFromUser();
+			try
+			{
+				notation = ColorfulIO::GetTrimmedLineFromUser();
+			}
+			catch (std::invalid_argument err)
+			{
+				validInput = false;
+				continue;
+			}
+			
 
 			if (IsValidAlgebraic(notation))
 				validInput = true;
@@ -45,15 +54,21 @@ namespace Chess
 					Move move = ParseAlgebraicMove(notation, board);
 
 					//Move has been parsed, check validity based on pieces
+					if (!board.GetSquare(move.from).IsEmpty())
+					{
+						std::vector<Move> legal_moves = board.GetPieceAt(move.from)->GetLegalMoves(move.from, board);
 
-					std::vector<Move> legal_moves = board.GetPieceAt(move.from)->GetLegalMoves(move.from, board);
+						auto itr = std::find(legal_moves.begin(), legal_moves.end(), move);
 
-					auto itr = std::find(legal_moves.begin(), legal_moves.end(), move);
-
-					if (itr != legal_moves.end())
-						return *itr;
-					else throw std::invalid_argument("That is not a legal move!");
-
+						if (itr != legal_moves.end())
+							return *itr;
+						else throw std::invalid_argument("That is not a legal move!");
+					}
+					else
+					{
+						throw std::invalid_argument("That is not a legal move!");
+						//return std::nullopt;
+					}
 				}
 				catch(std::invalid_argument err)
 				{

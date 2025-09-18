@@ -33,7 +33,7 @@ namespace Chess
 
 		void SetName(std::string name);
 
-		virtual Move GetMove(const Board& board) = 0; //Pure virtual
+		virtual std::optional<Move> GetMove(const Board& board) = 0; //Pure virtual
 	};
 }
 

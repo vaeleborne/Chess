@@ -10,18 +10,20 @@ namespace Chess::Engine
 		std::cout << std::endl;
 
 		//Get the current players move
-		Move player_move = ChessEngine::Get().GetCurrentPlayer().GetMove(ChessEngine::Get().GetBoard());
+		std::optional<Move> player_move = ChessEngine::Get().GetCurrentPlayer().GetMove(ChessEngine::Get().GetBoard());
 
 		//Add move as a piece command to the engine, then process it
 
-		ChessEngine::Get().AddMoveCommand(std::make_unique<Commands::PieceCommand>(player_move));
+		if (player_move.has_value())
+		{
+			ChessEngine::Get().AddMoveCommand(std::make_unique<Commands::PieceCommand>(player_move.value()));
 
-		ChessEngine::Get().ProcessCurrentMove(); //Will check for win here too
+			ChessEngine::Get().ProcessCurrentMove(); //Will check for win here too
 
-		//TODO: Add Option To Undo Move(If player wishes, before going to the next turn)
+			//TODO: Add Option To Undo Move(If player wishes, before going to the next turn)
 
-		// Swap Player
-		ChessEngine::Get().GetCurrentPlayer().GetColor() == Pieces::Color::WHITE ? ChessEngine::Get().SetCurrentPlayer(Pieces::Color::BLACK) : ChessEngine::Get().SetCurrentPlayer(Pieces::Color::WHITE);
-
+			// Swap Player
+			ChessEngine::Get().GetCurrentPlayer().GetColor() == Pieces::Color::WHITE ? ChessEngine::Get().SetCurrentPlayer(Pieces::Color::BLACK) : ChessEngine::Get().SetCurrentPlayer(Pieces::Color::WHITE);
+		}
 	}
 }

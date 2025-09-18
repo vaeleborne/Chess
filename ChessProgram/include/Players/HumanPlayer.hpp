@@ -21,7 +21,7 @@ namespace Chess
 		/// <summary>
 		/// Prompt user for a move in algebraic format
 		/// </summary>
-		Move GetMove(const Board& board) override;
+		std::optional<Move> GetMove(const Board& board) override;
 	};
 }
 #endif

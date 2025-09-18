@@ -14,7 +14,7 @@ int main()
 
 	HumanPlayer playerTest(Pieces::Color::WHITE, "name");
 
-	playerTest.GetMove(Engine::ChessEngine::Get().GetBoard());
+	//playerTest.GetMove(Engine::ChessEngine::Get().GetBoard());
 
 	//Engine::ChessEngine::Get().GetBoard().Print();
 	return 0;
