@@ -8,15 +8,15 @@
  * @version 1.0
  * @copyright MIT License
  */
+#include "ChessEngine.hpp"
 namespace Chess::Engine
 {
 	class ChessEngine;
-
 	class IGameState
 	{
 	public:
 		virtual ~IGameState() = default;
-		virtual void Update(ChessEngine& engine) = 0;
+		virtual void Update() = 0;
 	};
 }
 

@@ -47,10 +47,13 @@ namespace Chess::Pieces
 	//Checks if the pawn can move diagonally and adds the move if it can
 	void CheckAndAddDiagonalMove(std::vector<Move>& moves, const Chess::Position& from, const Chess::Position& diagonal, const Chess::Board& board, const Piece& pawn)
 	{
-		std::shared_ptr<Piece> target = board.GetPieceAt(diagonal);
-		if (diagonal.IsValid() && !board.GetSquare(diagonal).IsEmpty() && target->GetColor() != pawn.GetColor())
+		if (diagonal.IsValid())
 		{
-			AddCaptureMove(moves, from, diagonal, board, pawn, target);
+			std::shared_ptr<Piece> target = board.GetPieceAt(diagonal);
+			if (!board.GetSquare(diagonal).IsEmpty() && target->GetColor() != pawn.GetColor())
+			{
+				AddCaptureMove(moves, from, diagonal, board, pawn, target);
+			}
 		}
 	}
 
@@ -87,14 +90,16 @@ namespace Chess::Pieces
 
 		//Check for diagonal takeover (may also be a promotion!)
 		Position leftDiagonal = Position(from.file - 1, forwardOne.rank);
-		Position rightDiagonal = Position(from.file + 1, forwardOne.rank);
-
 		CheckAndAddDiagonalMove(moves, from, leftDiagonal, board, *thisPawn);
+
+		Position rightDiagonal = Position(from.file + 1, forwardOne.rank);
 		CheckAndAddDiagonalMove(moves, from, rightDiagonal, board, *thisPawn);
+			
 
 		//Check for en passant
 		if (board.state.enPassantTarget.has_value())
 		{
+			//TODO: Fix LOGIC, 
 			auto& epTarget = board.state.enPassantTarget.value();
 			if (epTarget.IsValid() && std::abs((int)epTarget.file - (int)from.file) == 1)
 			{

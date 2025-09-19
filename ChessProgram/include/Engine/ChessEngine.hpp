@@ -1,9 +1,12 @@
-#ifndef CHESS_ENGINE_HPP
+﻿#ifndef CHESS_ENGINE_HPP
 #define CHESS_ENGINE_HPP
 #include "IGameState.hpp"
 #include "../Board/Board.hpp"
 #include "../Players/Player.hpp"
+#include "../Commands/IMoveCommand.hpp"
+#include "MainMenuState.hpp"
 #include <memory>
+#include <stack>
 /**
  * @file    ChessEngine.hpp
  * @author  Dylan Morgan
@@ -14,6 +17,7 @@
  */
 namespace Chess::Engine
 {
+	class IGameState;
 	class ChessEngine
 	{
 	private:
@@ -24,12 +28,35 @@ namespace Chess::Engine
 		std::unique_ptr<IGameState> _gameState;
 		std::unique_ptr<Player> _playerWhite;
 		std::unique_ptr<Player> _playerBlack;
+		std::stack<std::unique_ptr<Commands::IMoveCommand>> _movement_commands;
+
+		//TODO: Add list of player white captured pieces
+		//TODO: Add list of player black captured pieces
+
+		Player* _currentPlayer;					//Raw pointer used to track whose turn it is
+
 		bool running = true;
 
 	public:
 		static ChessEngine& Get();
 		void SetState(std::unique_ptr<IGameState> newState);
 		void Run();
+		void Reset();
+
+		void CreatePlayerWhite(std::unique_ptr<Player> player);
+		void CreatePlayerBlack(std::unique_ptr<Player> player);
+		void SetCurrentPlayer(Pieces::Color color);
+
+		void AddMoveCommand(std::unique_ptr<Commands::IMoveCommand> command);
+		void UndoLastMoveCommand();
+
+		void ProcessCurrentMove();
+
+		//TODO: Move to CPP
+	    Player& GetCurrentPlayer() {
+			if (!_currentPlayer)
+				throw "No current player!";
+			return *_currentPlayer; }
 
 		Board& GetBoard();
 

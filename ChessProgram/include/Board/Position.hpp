@@ -74,6 +74,7 @@ namespace Chess {
 			if (pos.size() < 2)
 				throw std::exception("Algebraic string must be at least 2 characters!");
 
+
 			if (!ValidFile(pos[0]) || !ValidRank(pos[1]))
 				throw std::exception("Algebraic string is not a valid representation of a file and rank!");
 
