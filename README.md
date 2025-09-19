@@ -62,4 +62,4 @@ Implements object-oriented principles and software design patterns including Sin
 ## Author
 **Dylan Morgan**
 
-[Portfolio Site](dylanmorgan-dev.com) | [LinkedIn](https://www.linkedin.com/in/dylan-morgan-a6535817b/) 
+[Portfolio Site](https://www.dylanhawke-dev.com) | [LinkedIn](https://www.linkedin.com/in/dylan-morgan-a6535817b/) 
