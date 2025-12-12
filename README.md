@@ -60,6 +60,6 @@ Implements object-oriented principles and software design patterns including Sin
  - [ ] Save/load game state
 
 ## Author
-**Dylan Morgan**
+**Dylan Hawke**
 
 [Portfolio Site](https://www.dylanhawke-dev.com) | [LinkedIn](https://www.linkedin.com/in/dylan-morgan-a6535817b/) 
